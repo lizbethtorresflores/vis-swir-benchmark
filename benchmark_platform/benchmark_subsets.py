@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from io import BytesIO
 import json
+import re
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
@@ -166,12 +167,25 @@ def get_subset_pairs(
     manifest = build_subset_manifest(dataset, subset_id, direction=direction, max_pairs=max_pairs)
     vis_files = list_image_files(visible_dir(dataset))
     swir_files = list_image_files(swir_dir(dataset))
+    vis_by_frame = {
+        int(match.group(1)): path
+        for path in vis_files
+        if (match := re.search(r"(\d+)$", path.stem)) is not None
+    }
+    swir_by_frame = {
+        int(match.group(1)): path
+        for path in swir_files
+        if (match := re.search(r"(\d+)$", path.stem)) is not None
+    }
     max_len = min(len(vis_files), len(swir_files))
     pairs = []
     for frame_id in manifest["official_subset_frame_ids"]:
-        if frame_id >= max_len:
-            continue
-        pairs.append((frame_id, vis_files[frame_id], swir_files[frame_id]))
+        if frame_id in vis_by_frame and frame_id in swir_by_frame:
+            pairs.append((frame_id, vis_by_frame[frame_id], swir_by_frame[frame_id]))
+        elif frame_id < max_len:
+            # Backward-compatible fallback for datasets whose filenames do not
+            # contain their original frame index.
+            pairs.append((frame_id, vis_files[frame_id], swir_files[frame_id]))
     if not pairs:
         raise FileNotFoundError(f"No RAW VIS/SWIR pairs were found for {dataset} / {subset_id}.")
     return pairs
