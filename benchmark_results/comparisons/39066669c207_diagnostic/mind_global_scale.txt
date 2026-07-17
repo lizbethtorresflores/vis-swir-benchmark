@@ -1,0 +1,2 @@
+global_vmin=0.01948199
+global_vmax=0.09304973

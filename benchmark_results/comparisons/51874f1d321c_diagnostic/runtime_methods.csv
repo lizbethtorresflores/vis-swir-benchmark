@@ -1,0 +1,6 @@
+method,dataset,direction,runtime_total_s,fps_global
+"OpenCV global H SWIR → VIS (sunny, SWIR_to_VIS)",sunny,SWIR_to_VIS,1787.2671,0.5595
+"OpenCV global H VIS → SWIR (sunny, VIS_to_SWIR)",sunny,VIS_to_SWIR,98.1807,10.1853
+"Patch MAGSAC++ SWIR → VIS (sunny, SWIR_to_VIS)",sunny,SWIR_to_VIS,420.936,2.3757
+"Patch MAGSAC++ VIS → SWIR (sunny, VIS_to_SWIR)",sunny,VIS_to_SWIR,387.502,2.5806
+"RASMD baseline (sunny, VIS_to_SWIR)",sunny,VIS_to_SWIR,,

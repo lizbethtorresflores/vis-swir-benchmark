@@ -1,0 +1,15 @@
+# Dependencies required to render the official benchmark in Streamlit Community Cloud.
+streamlit==1.58.0
+numpy==2.2.6
+pandas==3.0.1
+scipy==1.17.1
+matplotlib==3.10.6
+pillow==12.1.1
+scikit-image==0.26.0
+opencv-contrib-python-headless==4.12.0.88
+
+# Evaluation dependencies. They are loaded lazily when a submission is evaluated.
+torch==2.3.1
+kornia==0.8.2
+transformers==4.41.2
+lightglue @ git+https://github.com/cvg/LightGlue.git@56961b368cfa146959e850e181cb0ab6f23a728e

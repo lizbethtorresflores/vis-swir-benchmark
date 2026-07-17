@@ -1,0 +1,9 @@
+Dataset: cloudy
+Direction: VIS_to_SWIR
+Subset: cloudy_VIS_to_SWIR_official_leaderboard_100
+Evaluated pairs: 100
+Submission type: aligned_images
+Device: cuda
+"evaluation_protocol": "final_split_images"
+Benchmark did not apply a homography for this submission.
+Reprojection Error: reprojection_aligned.py protocol (SuperPoint + LightGlue, device=cuda)

@@ -1,0 +1,8 @@
+{
+  "runtime_seconds": null,
+  "fps": null,
+  "evaluation_runtime_seconds": 160.11756944656372,
+  "evaluation_fps": 0.6245410815667743,
+  "device": "cuda",
+  "evaluation_protocol": "final_split_images"
+}

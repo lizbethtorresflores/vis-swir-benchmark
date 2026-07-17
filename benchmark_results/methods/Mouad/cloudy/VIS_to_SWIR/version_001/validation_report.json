@@ -1,0 +1,22 @@
+{
+  "validation_status": "passed",
+  "submission_type": "aligned_images",
+  "num_pairs": 100,
+  "checks": {
+    "metadata": "passed",
+    "zip_structure": "passed",
+    "frame_ids": "passed",
+    "images": {
+      "checked_pairs": 100,
+      "readable_images": 200
+    },
+    "frame_identity": {
+      "checked_pairs": 100,
+      "method": "ORB + RANSAC same-modality same-frame identity check",
+      "min_vis_inliers": 329,
+      "min_swir_inliers": 731,
+      "median_vis_inlier_ratio": 0.957189790809941,
+      "median_swir_inlier_ratio": 0.9932699275362319
+    }
+  }
+}

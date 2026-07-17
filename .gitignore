@@ -1,0 +1,36 @@
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+build/
+dist/
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+# Local datasets and Python environments are far too large for GitHub.
+datas/
+venv/
+
+# Runtime/generated benchmark data that must not be committed.
+benchmark_results/downloads/
+benchmark_results/jobs/
+benchmark_results/prepared_zips/
+
+# Local deployment helpers and Codex metadata.
+.push_snowy_tmp/
+.agents/
+.codex/
+
+# Never commit local Streamlit credentials.
+.streamlit/secrets.toml
+
+.streamlit/secrets.toml
+.cache/
