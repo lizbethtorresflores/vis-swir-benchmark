@@ -1,2 +1,2 @@
 dataset,method,num_images,eval_time_s,fps,time_per_frame_s
-rainy_test,patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle,794,965.2092714309692,0.8226195328841556,1.2156288053286766
+rainy_test,patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle,794,1042.328935623169,0.7617556923384243,1.3127568458730088
