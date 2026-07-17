@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+snowy_test,RASMD_aligned_baseline,1000,704.7803246974945,1.4188818344627023,0.7047803246974945

@@ -1,0 +1,24 @@
+===== RUNTIME METRICS OPENCV =====
+
+Dataset              : sunny_test
+Direction            : SWIR_TO_VIS
+Train images         : 150
+Test images          : 1000
+
+Train start          : 0
+Train step           : 5
+Train count          : 150
+Test start           : 0
+Test end             : 999
+
+ORB features         : 5000
+RANSAC threshold     : 5.0
+
+Temps homographie    : 27.2368 s
+FPS homographie      : 5.5073
+
+Temps application    : 1760.0293 s
+FPS application      : 0.5682
+
+Temps total          : 1787.2671 s
+FPS global           : 0.5595

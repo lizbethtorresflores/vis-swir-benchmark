@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+sunny_test,RASMD_aligned_baseline,1000,1219.372822523117,0.82009372484685,1.219372822523117

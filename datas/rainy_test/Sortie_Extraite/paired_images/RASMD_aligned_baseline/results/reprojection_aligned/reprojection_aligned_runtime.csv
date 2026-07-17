@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+rainy_test,RASMD_aligned_baseline,794,717.096451997757,1.1072429626279667,0.9031441460928928

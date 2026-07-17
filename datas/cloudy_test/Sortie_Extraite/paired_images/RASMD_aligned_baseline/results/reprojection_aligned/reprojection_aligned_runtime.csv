@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+cloudy_test,RASMD_aligned_baseline,1000,938.8791515827179,1.0650998036480495,0.9388791515827178

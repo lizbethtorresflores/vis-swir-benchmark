@@ -1,0 +1,2 @@
+dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+tmp,RASMD_aligned_baseline,100,140.201843,0.713257,1.402018,cuda,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.

@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+cloudy_test,opencv_alignment_VIS_TO_SWIR_train150_step5_test500_to_1499,1000,1079.7233726978302,0.9261631500125528,1.0797233726978301

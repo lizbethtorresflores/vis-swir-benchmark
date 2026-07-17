@@ -1,0 +1,30 @@
+===== RUNTIME METRICS OPENCV =====
+
+Dataset              : cloudy_test
+Direction            : SWIR_TO_VIS
+Train images         : 150
+Test images          : 1000
+
+Train start          : 500
+Train step           : 5
+Train count          : 150
+Test start           : 500
+Test end             : 1499
+
+ORB features         : 5000
+RANSAC threshold     : 5.0
+
+Crop mode            : strict
+Crop references      : 30
+Crop margin          : 10
+Crop rect            : x=30:1880, y=152:1526
+Crop size            : 1850 x 1374
+
+Temps homographie    : 29.6082 s
+FPS homographie      : 5.0662
+
+Temps application    : 59.8509 s
+FPS application      : 16.7082
+
+Temps total          : 138.3826 s
+FPS global           : 7.2263

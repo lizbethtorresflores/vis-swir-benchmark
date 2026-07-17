@@ -1,0 +1,2 @@
+dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,note
+Sortie_Extraite,opencv_alignment_VIS_TO_SWIR_train150_step5_test0_to_999,1000,1124.023772,0.889661,1.124024,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.

@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+snowy_test,patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle,1000,708.3266725540161,1.4117779814704652,0.7083266725540162

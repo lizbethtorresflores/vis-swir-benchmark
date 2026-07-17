@@ -1,0 +1,2 @@
+dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+Sortie_Extraite,patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle,794,635.377184,1.249651,0.800223,cuda,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.

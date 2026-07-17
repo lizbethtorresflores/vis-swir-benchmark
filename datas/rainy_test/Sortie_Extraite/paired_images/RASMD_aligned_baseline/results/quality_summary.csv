@@ -1,0 +1,2 @@
+num_frames,mean_goa,median_goa,std_goa,q25_goa,q75_goa,p90_goa,p95_goa,mean_mind_ssd,median_mind_ssd,std_mind_ssd,q25_mind_ssd,q75_mind_ssd,p90_mind_ssd,p95_mind_ssd,dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+794,0.64042,0.6428,0.044578,0.6036,0.671475,0.6946,0.709135,0.032402,0.0311,0.005089,0.028225,0.0364,0.03927,0.04227,Sortie_Extraite,RASMD_aligned_baseline,794,775.249975,1.024186,0.976385,cuda,"GOA, Edge Alignment and MIND computed on aligned VIS/SWIR pairs after common-area cropping."

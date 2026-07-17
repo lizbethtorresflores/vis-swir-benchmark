@@ -1,0 +1,30 @@
+===== RUNTIME METRICS OPENCV =====
+
+Dataset              : snowy_test
+Direction            : VIS_TO_SWIR
+Train images         : 150
+Test images          : 1000
+
+Train start          : 1400
+Train step           : 5
+Train count          : 150
+Test start           : 1400
+Test end             : 2399
+
+ORB features         : 5000
+RANSAC threshold     : 5.0
+
+Crop mode            : strict
+Crop references      : 30
+Crop margin          : 10
+Crop rect            : x=10:1260, y=10:924
+Crop size            : 1250 x 914
+
+Temps homographie    : 8.9708 s
+FPS homographie      : 16.7209
+
+Temps application    : 34.0776 s
+FPS application      : 29.3448
+
+Temps total          : 63.1552 s
+FPS global           : 15.8340

@@ -1,0 +1,16 @@
+===== RUNTIME METRICS =====
+
+Train images        : 150
+Test images         : 794
+
+Temps extraction    : 293.5741 s
+FPS extraction      : 0.5109
+
+Temps homographie   : 0.1890 s
+FPS homographie     : 793.7003
+
+Temps application   : 88.2352 s
+FPS application     : 8.9987
+
+Temps total         : 404.4041 s
+FPS global          : 1.9634

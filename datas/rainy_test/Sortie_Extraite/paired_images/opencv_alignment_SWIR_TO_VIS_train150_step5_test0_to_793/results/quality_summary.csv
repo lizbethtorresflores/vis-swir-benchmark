@@ -1,0 +1,2 @@
+num_frames,mean_goa,median_goa,std_goa,q25_goa,q75_goa,p90_goa,p95_goa,mean_mind_ssd,median_mind_ssd,std_mind_ssd,q25_mind_ssd,q75_mind_ssd,p90_mind_ssd,p95_mind_ssd,dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+794,0.575483,0.57035,0.027257,0.5569,0.586975,0.61871,0.630705,0.037488,0.03545,0.005515,0.0332,0.041775,0.0463,0.0481,Sortie_Extraite,opencv_alignment_SWIR_TO_VIS_train150_step5_test0_to_793,794,1199.91936,0.661711,1.511233,cuda,"GOA, Edge Alignment and MIND computed on aligned VIS/SWIR pairs after common-area cropping."

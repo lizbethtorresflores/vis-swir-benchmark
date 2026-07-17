@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+sunny_test,opencv_alignment_VIS_TO_SWIR_train150_step5_test0_to_999,1000,1087.0466916561127,0.9199236865129525,1.0870466916561126
