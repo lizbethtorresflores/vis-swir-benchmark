@@ -1495,8 +1495,9 @@ def page_submit_results() -> None:
     if submission_type == "Homography-based submission":
         st.caption(
             "Homography-based submission: upload one global homography matrix H. The benchmark will apply "
-            "this H to the official RAW VIS/SWIR pairs, save the final aligned images and compute "
-            "the official metrics."
+            "this H to the official RAW VIS/SWIR pairs, remove only the geometrically invalid black borders "
+            "with one common crop, save the cropped aligned images and their 50/50 overlays, and compute "
+            "the official metrics. It does not remove the sky or the vehicle."
         )
     else:
         st.caption(

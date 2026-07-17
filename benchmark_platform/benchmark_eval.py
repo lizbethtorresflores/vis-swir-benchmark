@@ -33,6 +33,98 @@ from benchmark_validation import UploadedPair
 from crop_patch_auto_like_rasmd import as_bgr, estimate_crop_for_pair, resize, select_reference_indices
 
 
+def _largest_valid_rectangle(mask: np.ndarray) -> tuple[int, int, int, int]:
+    """Retourne le plus grand rectangle compose uniquement de pixels valides."""
+    h, w = mask.shape
+    heights = np.zeros(w, dtype=np.int32)
+    best_area = 0
+    best_rect = (0, 0, w, h)
+
+    for y in range(h):
+        heights += mask[y]
+        heights[mask[y] == 0] = 0
+        stack: list[int] = []
+        for x in range(w + 1):
+            current = int(heights[x]) if x < w else 0
+            while stack and current < heights[stack[-1]]:
+                top = stack.pop()
+                height = int(heights[top])
+                left = stack[-1] + 1 if stack else 0
+                area = height * (x - left)
+                if area > best_area:
+                    best_area = area
+                    best_rect = (left, y - height + 1, x, y + 1)
+            stack.append(x)
+
+    return best_rect
+
+
+def _homography_global_valid_crop(
+    H: np.ndarray,
+    subset_pairs: list[tuple[int, Path, Path]],
+    direction: str,
+    margin: int = 12,
+) -> tuple[int, int, int, int]:
+    """Calcule le crop geometrique global sans deduire la validite de la luminosite.
+
+    Comme dans l'application Patch, une image binaire pleine est transformee par
+    H. L'intersection des masques de toutes les paires garantit qu'un seul crop
+    est utilise pour tout le subset officiel.
+    """
+    common_mask: np.ndarray | None = None
+
+    for _, vis_path, swir_path in subset_pairs:
+        vis = cv2.imread(str(vis_path), cv2.IMREAD_COLOR)
+        swir = cv2.imread(str(swir_path), cv2.IMREAD_GRAYSCALE)
+        if vis is None or swir is None:
+            continue
+
+        if direction == "VIS_to_SWIR":
+            out_h, out_w = swir.shape[:2]
+            source_shape = vis.shape[:2]
+        elif direction == "SWIR_to_VIS":
+            out_h, out_w = vis.shape[:2]
+            source_shape = swir.shape[:2]
+        else:
+            raise ValueError(f"Unsupported direction: {direction}")
+
+        source_mask = np.full(source_shape, 255, dtype=np.uint8)
+        valid_mask = cv2.warpPerspective(
+            source_mask,
+            H,
+            (out_w, out_h),
+            flags=cv2.INTER_NEAREST,
+            borderMode=cv2.BORDER_CONSTANT,
+            borderValue=0,
+        )
+        valid_mask = (valid_mask > 0).astype(np.uint8)
+        if common_mask is None:
+            common_mask = valid_mask
+        elif common_mask.shape != valid_mask.shape:
+            raise ValueError("Official RAW target images do not share one output size.")
+        else:
+            common_mask &= valid_mask
+
+    if common_mask is None or not np.any(common_mask):
+        raise ValueError("The homography leaves no valid common image region.")
+
+    if margin > 0:
+        kernel_size = 2 * margin + 1
+        eroded = cv2.erode(
+            common_mask,
+            np.ones((kernel_size, kernel_size), dtype=np.uint8),
+            iterations=1,
+        )
+        if np.any(eroded):
+            common_mask = eroded
+
+    crop_rect = _largest_valid_rectangle(common_mask)
+    x0, y0, x1, y1 = crop_rect
+    if x1 <= x0 or y1 <= y0:
+        raise ValueError("No rectangular valid region could be obtained from the homography.")
+    return crop_rect
+
+
 def _import_quality_functions():
     """Importe les metriques lourdes seulement au moment de l'evaluation."""
     from projet.registration.evaluation.quality_bench import (
@@ -489,6 +581,8 @@ def evaluate_homography_submission(
     direction = metadata["direction"]
     dataset = metadata["dataset"]
     subset_id = metadata.get("subset_id", "")
+    crop_rect = _homography_global_valid_crop(H, subset_pairs, direction)
+    crop_x0, crop_y0, crop_x1, crop_y1 = crop_rect
     log_lines = [
         f"Dataset: {dataset}",
         f"Direction: {direction}",
@@ -496,6 +590,12 @@ def evaluate_homography_submission(
         f"Evaluated pairs: {len(subset_pairs)}",
         f"Submission type: {metadata.get('submission_type', 'homography_based')}",
         f"Device: {resolved_device}",
+        (
+            "Geometric valid crop after homography: "
+            f"x={crop_x0}:{crop_x1}, y={crop_y0}:{crop_y1}, "
+            f"size={crop_x1 - crop_x0}x{crop_y1 - crop_y0}"
+        ),
+        "The crop removes only invalid warp borders; it does not remove sky or vehicle content.",
         f'"evaluation_protocol": "{EVALUATION_PROTOCOL}"',
     ]
     reprojection_evaluator = ReprojectionAlignedEvaluator()
@@ -508,8 +608,8 @@ def evaluate_homography_submission(
     progress_total = max(1, len(subset_pairs) * 2)
     for n, (frame_id, vis_path, swir_path) in enumerate(subset_pairs):
         if progress_callback is not None:
-            progress_callback(n + 1, progress_total, f"Diagnostic frame {n + 1}/{len(subset_pairs)}")
-        # Premiere etape : appliquer H aux images RAW et garder un diagnostic full-image.
+            progress_callback(n + 1, progress_total, f"Aligning and cropping frame {n + 1}/{len(subset_pairs)}")
+        # Appliquer H aux images RAW, puis le meme crop geometrique a toute la serie.
         vis = cv2.imread(str(vis_path), cv2.IMREAD_COLOR)
         swir = cv2.imread(str(swir_path), cv2.IMREAD_GRAYSCALE)
         if vis is None or swir is None:
@@ -524,6 +624,8 @@ def evaluate_homography_submission(
             h, w = vis.shape[:2]
             metric_vis = vis
             metric_swir = cv2.warpPerspective(swir, H, (w, h), flags=cv2.INTER_LINEAR)
+        metric_vis = metric_vis[crop_y0:crop_y1, crop_x0:crop_x1]
+        metric_swir = metric_swir[crop_y0:crop_y1, crop_x0:crop_x1]
         diagnostic_vis_path, diagnostic_swir_path = _save_aligned_pair_outputs(
             method_path,
             direction,
