@@ -251,11 +251,16 @@ def apply_app_theme(theme: str) -> None:
         [data-baseweb="select"] > div,
         [data-baseweb="input"] > div,
         [data-baseweb="textarea"] > div,
-        input,
-        textarea {{
+        [data-baseweb="input"] input,
+        [data-baseweb="textarea"] textarea {{
             background: {colors['surface_strong']} !important;
             color: {colors['text']} !important;
             border-color: {colors['border']} !important;
+        }}
+        [data-baseweb="select"] input {{
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
         }}
         [data-baseweb="popover"],
         [role="listbox"],
