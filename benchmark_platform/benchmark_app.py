@@ -61,10 +61,10 @@ RAW_RELEASE_BASE_URL = (
     "releases/download/raw-datasets-v1"
 )
 RAW_RELEASE_FILES = {
-    "Sunny": [f"sunny_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(4)],
+    "Sunny": [f"sunny_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(2)],
     "Cloudy": ["cloudy_full_raw_unaligned_VIS_SWIR.zip"],
     "Rainy": ["rainy_full_raw_unaligned_VIS_SWIR.zip"],
-    "Snowy": [f"snowy_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(4)],
+    "Snowy": [f"snowy_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(2)],
 }
 
 # Styles globaux de l'app : topbar, cartes de protocole, tableaux et boutons.
@@ -1558,7 +1558,7 @@ def page_submit_results() -> None:
         st.markdown("### Download Full RAW Unaligned Datasets")
         st.write(
             "These are the full unaligned VIS/SWIR datasets used by the local benchmark. "
-            "Cloudy and Rainy are single ZIP downloads. Sunny and Snowy are split into four parts."
+            "Cloudy and Rainy are single ZIP downloads. Sunny and Snowy are split into two parts."
         )
         download_cols = st.columns(4)
         for column, (dataset_name, filenames) in zip(download_cols, RAW_RELEASE_FILES.items()):
@@ -1570,18 +1570,14 @@ def page_submit_results() -> None:
 
         with st.expander("How to join the Sunny or Snowy parts"):
             st.write(
-                "Download all four parts into the same folder, then join them. Do not unzip the individual parts."
+                "Download both parts into the same folder, then join them. Do not unzip the individual parts."
             )
             st.code(
                 "cat sunny_full_raw_unaligned_VIS_SWIR.zip.part00 "
                 "sunny_full_raw_unaligned_VIS_SWIR.zip.part01 "
-                "sunny_full_raw_unaligned_VIS_SWIR.zip.part02 "
-                "sunny_full_raw_unaligned_VIS_SWIR.zip.part03 "
                 "> sunny_full_raw_unaligned_VIS_SWIR.zip\n\n"
                 "cat snowy_full_raw_unaligned_VIS_SWIR.zip.part00 "
                 "snowy_full_raw_unaligned_VIS_SWIR.zip.part01 "
-                "snowy_full_raw_unaligned_VIS_SWIR.zip.part02 "
-                "snowy_full_raw_unaligned_VIS_SWIR.zip.part03 "
                 "> snowy_full_raw_unaligned_VIS_SWIR.zip",
                 language="bash",
             )
