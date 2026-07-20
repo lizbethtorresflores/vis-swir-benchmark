@@ -1611,15 +1611,15 @@ def page_submit_results() -> None:
         with naming_cols[0]:
             st.markdown("**VIS → SWIR**")
             st.code(
-                "frame_000000_vis_aligned.png\n"
-                "frame_000000_swir_reference.png",
+                "frame_000000_vis_aligned.jpg\n"
+                "frame_000000_swir.jpg",
                 language=None,
             )
         with naming_cols[1]:
             st.markdown("**SWIR → VIS**")
             st.code(
-                "frame_000000_swir_aligned.png\n"
-                "frame_000000_vis_reference.png",
+                "frame_000000_swir_aligned.jpg\n"
+                "frame_000000_vis.jpg",
                 language=None,
             )
         st.caption(

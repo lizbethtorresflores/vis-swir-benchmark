@@ -230,7 +230,7 @@ def discover_uploaded_aligned_pairs(extract_dir: Path, direction: str) -> list[U
             else:
                 raise ValueError(
                     "Invalid VIS_to_SWIR file name: "
-                    f"{path.name}. Expected frame_xxxxxx_vis_aligned and frame_xxxxxx_swir_reference."
+                    f"{path.name}. Expected frame_xxxxxx_vis_aligned and frame_xxxxxx_swir."
                 )
         else:
             if name.endswith("_vis_reference") or name.endswith("_vis"):
@@ -244,7 +244,7 @@ def discover_uploaded_aligned_pairs(extract_dir: Path, direction: str) -> list[U
             else:
                 raise ValueError(
                     "Invalid SWIR_to_VIS file name: "
-                    f"{path.name}. Expected frame_xxxxxx_swir_aligned and frame_xxxxxx_vis_reference."
+                    f"{path.name}. Expected frame_xxxxxx_swir_aligned and frame_xxxxxx_vis."
                 )
     frame_ids = sorted(set(vis_by_id) | set(swir_by_id))
     pairs = []
