@@ -8,6 +8,7 @@ modules benchmark_eval, benchmark_submit, benchmark_storage et benchmark_plots.
 from __future__ import annotations
 
 import sys
+import os
 import socket
 import threading
 import re
@@ -54,7 +55,14 @@ from benchmark_subsets import (
 
 st.set_page_config(page_title="VIS-SWIR Benchmark", layout="wide")
 
-ONLINE_SUBMISSIONS_ENABLED = False
+# Community Cloud cannot run the heavy evaluation reliably. Keep submissions
+# active in local executions while pausing them only in the deployed app.
+_submission_override = os.getenv("BENCHMARK_ONLINE_SUBMISSIONS")
+ONLINE_SUBMISSIONS_ENABLED = (
+    _submission_override.strip().lower() in {"1", "true", "yes", "on"}
+    if _submission_override is not None
+    else not str(ROOT).startswith("/mount/src/")
+)
 EVALUATION_CONTACT_EMAIL = "vis-swir-benchmark@proton.me"
 RAW_RELEASE_BASE_URL = (
     "https://github.com/lizbethtorresflores/vis-swir-benchmark/"
