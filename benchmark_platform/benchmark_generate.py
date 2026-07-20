@@ -259,23 +259,23 @@ def _load_mind_raw_map(method_path: Path) -> np.ndarray | None:
 
 def generate_mind_global_comparison_panel(bundles: list[dict], out_dir: Path) -> None:
     """Genere un panneau MIND avec la meme echelle de couleur pour toutes les methodes."""
-    mind_maps = {}
+    mind_maps: list[tuple[str, np.ndarray | None]] = []
     for bundle in bundles:
         method_path = Path(bundle["path"])
         mean_map = _load_mind_raw_map(method_path)
-        if mean_map is not None:
-            mind_maps[_method_label(bundle)] = mean_map
+        mind_maps.append((_method_label(bundle), mean_map))
 
     if not mind_maps:
         return
 
-    values = [m[~np.isnan(m)].ravel() for m in mind_maps.values()]
+    values = [m[~np.isnan(m)].ravel() for _, m in mind_maps if m is not None]
     values = [v for v in values if len(v) > 0]
-    if not values:
-        return
-    all_values = np.concatenate(values)
-    vmin = np.percentile(all_values, 2)
-    vmax = np.percentile(all_values, 98)
+    if values:
+        all_values = np.concatenate(values)
+        vmin = np.percentile(all_values, 2)
+        vmax = np.percentile(all_values, 98)
+    else:
+        vmin, vmax = 0.0, 1.0
 
     cols = min(3, len(mind_maps))
     rows = int(np.ceil(len(mind_maps) / cols))
@@ -290,7 +290,23 @@ def generate_mind_global_comparison_panel(bundles: list[dict], out_dir: Path) ->
         ax.axis("off")
 
     image = None
-    for ax, (method_name, mean_map) in zip(axes.ravel(), mind_maps.items()):
+    missing_methods = []
+    for ax, (method_name, mean_map) in zip(axes.ravel(), mind_maps):
+        if mean_map is None:
+            missing_methods.append(method_name)
+            ax.text(
+                0.5,
+                0.5,
+                "MIND map\nunavailable",
+                ha="center",
+                va="center",
+                fontsize=12,
+                color="#666666",
+                transform=ax.transAxes,
+            )
+            ax.set_title(method_name, fontsize=10)
+            ax.axis("off")
+            continue
         image = ax.imshow(mean_map, cmap="jet", vmin=vmin, vmax=vmax)
         ax.set_title(method_name, fontsize=10)
         ax.axis("off")
@@ -310,7 +326,11 @@ def generate_mind_global_comparison_panel(bundles: list[dict], out_dir: Path) ->
     plt.close(fig)
 
     (out_dir / "mind_global_scale.txt").write_text(
-        f"global_vmin={vmin:.8f}\nglobal_vmax={vmax:.8f}\n",
+        (
+            f"global_vmin={vmin:.8f}\n"
+            f"global_vmax={vmax:.8f}\n"
+            f"missing_methods={'; '.join(missing_methods)}\n"
+        ),
         encoding="utf-8",
     )
 
