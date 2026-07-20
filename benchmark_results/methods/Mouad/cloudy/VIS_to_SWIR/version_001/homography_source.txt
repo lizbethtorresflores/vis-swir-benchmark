@@ -1,0 +1,4 @@
+Published homography direction: VIS_to_SWIR
+Source artifact: cloudy_test_out_generalized_h_VIS_to_SWIR/H_general.npy
+The source H_general.npy is stored as SWIR_to_VIS; the published H_global.npy is its normalized inverse.
+The evaluated aligned images match the source pipeline outputs up to JPEG recompression.

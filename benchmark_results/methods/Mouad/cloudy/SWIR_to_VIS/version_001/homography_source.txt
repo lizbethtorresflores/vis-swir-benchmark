@@ -1,0 +1,4 @@
+Published homography direction: SWIR_to_VIS
+Source artifact: cloudy_test_out_generalized_h/H_general.npy
+The source pipeline stores H_general.npy in SWIR_to_VIS orientation.
+The evaluated aligned images match the source pipeline outputs up to JPEG recompression.
