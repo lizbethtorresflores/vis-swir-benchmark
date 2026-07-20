@@ -187,6 +187,106 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+
+def apply_app_theme(theme: str) -> None:
+    """Applique un theme clair ou sombre sans dependre du theme du navigateur."""
+    dark = theme == "Dark"
+    colors = {
+        "page": "#0e1117" if dark else "#ffffff",
+        "surface": "#161b22" if dark else "#f7f8fa",
+        "surface_strong": "#1f2630" if dark else "#ffffff",
+        "text": "#f0f3f6" if dark else "#111827",
+        "muted": "#aeb8c4" if dark else "#55606d",
+        "label": "#9da9b7" if dark else "#697386",
+        "border": "#3a4553" if dark else "#d7dce2",
+        "accent_surface": "#17324d" if dark else "#e8f2ff",
+        "accent_text": "#d7ebff" if dark else "#12344d",
+    }
+    st.markdown(
+        f"""
+        <style>
+        [data-testid="stAppViewContainer"],
+        [data-testid="stHeader"],
+        .stApp {{
+            background: {colors['page']} !important;
+            color: {colors['text']} !important;
+        }}
+        [data-testid="stAppViewContainer"] h1,
+        [data-testid="stAppViewContainer"] h2,
+        [data-testid="stAppViewContainer"] h3,
+        [data-testid="stAppViewContainer"] h4,
+        [data-testid="stAppViewContainer"] p,
+        [data-testid="stAppViewContainer"] label,
+        [data-testid="stAppViewContainer"] li,
+        [data-testid="stAppViewContainer"] .benchmark-title {{
+            color: {colors['text']} !important;
+        }}
+        .benchmark-topbar {{ border-color: {colors['border']} !important; }}
+        .benchmark-subtitle,
+        .workflow-step span {{ color: {colors['muted']} !important; }}
+        .protocol-row,
+        .protocol-cell,
+        .workflow-step {{ border-color: {colors['border']} !important; }}
+        .protocol-cell,
+        .workflow-step {{
+            background: {colors['surface']} !important;
+            color: {colors['text']} !important;
+        }}
+        .protocol-label {{ color: {colors['label']} !important; }}
+        .protocol-value {{ color: {colors['text']} !important; }}
+        .protocol-callout {{
+            background: {colors['accent_surface']} !important;
+            color: {colors['accent_text']} !important;
+        }}
+        div[role="radiogroup"] label {{
+            background: {colors['surface_strong']} !important;
+            border-color: {colors['border']} !important;
+        }}
+        div[role="radiogroup"] label p {{ color: {colors['text']} !important; }}
+        div[role="radiogroup"] label:has(input:checked) {{
+            background: {colors['accent_surface']} !important;
+            border-color: #4d9bd1 !important;
+        }}
+        div[role="radiogroup"] label:has(input:checked) p {{ color: {colors['accent_text']} !important; }}
+        [data-baseweb="select"] > div,
+        [data-baseweb="input"] > div,
+        [data-baseweb="textarea"] > div,
+        input,
+        textarea {{
+            background: {colors['surface_strong']} !important;
+            color: {colors['text']} !important;
+            border-color: {colors['border']} !important;
+        }}
+        [data-baseweb="popover"],
+        [role="listbox"],
+        [role="option"] {{
+            background: {colors['surface_strong']} !important;
+            color: {colors['text']} !important;
+        }}
+        .benchmark-table-wrap,
+        table.benchmark-centered-table,
+        table.benchmark-no-scroll-table {{
+            background: {colors['page']} !important;
+            border-color: {colors['border']} !important;
+        }}
+        table.benchmark-centered-table th,
+        table.benchmark-no-scroll-table th {{
+            background: {colors['surface']} !important;
+            color: {colors['label']} !important;
+            border-color: {colors['border']} !important;
+        }}
+        table.benchmark-centered-table td,
+        table.benchmark-no-scroll-table td {{
+            background: {colors['page']} !important;
+            color: {colors['text']} !important;
+            border-color: {colors['border']} !important;
+        }}
+        hr {{ border-color: {colors['border']} !important; }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
 DISPLAY_COLUMNS = {
     "rank": "Rank",
     "method_name": "Method name",
@@ -1767,13 +1867,21 @@ PAGES = {
 }
 
 render_header()
-choice = st.radio(
+navigation_col, theme_col = st.columns([5, 1])
+choice = navigation_col.radio(
     "Navigation",
     list(PAGES.keys()),
     horizontal=True,
     label_visibility="visible",
     key="benchmark_navigation",
 )
+theme = theme_col.selectbox(
+    "Theme",
+    ["Light", "Dark"],
+    index=0,
+    key="benchmark_theme",
+)
+apply_app_theme(theme)
 
 with st.container():
     PAGES[choice]()
