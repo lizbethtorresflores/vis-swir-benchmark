@@ -54,6 +54,9 @@ from benchmark_subsets import (
 
 st.set_page_config(page_title="VIS-SWIR Benchmark", layout="wide")
 
+ONLINE_SUBMISSIONS_ENABLED = False
+EVALUATION_CONTACT_EMAIL = "vis-swir-benchmark@proton.me"
+
 # Styles globaux de l'app : topbar, cartes de protocole, tableaux et boutons.
 st.markdown(
     """
@@ -1428,6 +1431,33 @@ def page_compare_methods() -> None:
 def page_submit_results() -> None:
     """Affiche le formulaire de soumission et lance l'evaluation d'une homographie."""
     st.subheader("Submit Results")
+    if not ONLINE_SUBMISSIONS_ENABLED:
+        st.warning(
+            "Online evaluation is temporarily unavailable because the current hosting environment "
+            "does not provide the GPU resources required by the evaluation pipeline."
+        )
+        st.markdown(
+            f"""
+            ### Submit by email
+
+            Until online evaluation is restored, please send your evaluation request to
+            **[{EVALUATION_CONTACT_EMAIL}](mailto:{EVALUATION_CONTACT_EMAIL}?subject=VIS-SWIR%20Benchmark%20Submission)**.
+
+            Please include:
+
+            - method name, authors and institution;
+            - dataset and alignment direction (`VIS → SWIR` or `SWIR → VIS`);
+            - number of image pairs used to estimate the homography;
+            - the global 3×3 homography matrix, or a download link to the aligned-images ZIP;
+            - runtime, evaluation device and a short description of the method.
+
+            The benchmark team will run the official evaluation and contact you when the results are ready.
+            For large files, please send a download link instead of attaching the ZIP directly to the email.
+            """
+        )
+        st.info("Leaderboard browsing, method comparison and method details remain available.")
+        return
+
     render_last_submission_result()
     if submission_job_is_running():
         return
@@ -1727,7 +1757,7 @@ def page_method_details() -> None:
 PAGES = {
     "Leaderboard": page_leaderboard,
     "Compare Methods": page_compare_methods,
-    "Submit Results": page_submit_results,
+    "Submit Results (Paused)": page_submit_results,
     "Method Details": page_method_details,
     "Protocol": page_home,
 }
