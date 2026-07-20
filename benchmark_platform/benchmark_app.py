@@ -1433,8 +1433,7 @@ def page_submit_results() -> None:
     st.subheader("Submit Results")
     if not ONLINE_SUBMISSIONS_ENABLED:
         st.warning(
-            "Online evaluation is temporarily unavailable because the current hosting environment "
-            "does not provide the GPU resources required by the evaluation pipeline."
+            "Automatic online evaluation is temporarily suspended."
         )
         st.markdown(
             f"""
