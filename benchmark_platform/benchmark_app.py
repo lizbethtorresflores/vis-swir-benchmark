@@ -647,7 +647,12 @@ def format_table(df: pd.DataFrame) -> pd.DataFrame:
 def format_leaderboard_table(df: pd.DataFrame) -> pd.DataFrame:
     """Prepare la table du leaderboard sans colonnes internes de soumission."""
     table = format_table(df)
-    return table.drop(columns=["Submission", "# Pairs", "Official Subset"], errors="ignore")
+    table = table.drop(columns=["Submission", "# Pairs", "Official Subset"], errors="ignore")
+    table = table.astype(object).where(pd.notna(table), "-")
+    for column in table.columns:
+        missing_text = table[column].astype(str).str.strip().str.lower().isin({"", "nan", "none", "nat", "<na>"})
+        table.loc[missing_text, column] = "-"
+    return table
 
 
 def method_info_table(metadata: dict, runtime: dict) -> pd.DataFrame:
