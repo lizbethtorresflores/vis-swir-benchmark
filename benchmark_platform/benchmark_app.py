@@ -1583,6 +1583,42 @@ def page_submit_results() -> None:
             )
             st.caption("The reconstructed ZIP is byte-for-byte identical to the original local benchmark ZIP.")
 
+        st.markdown("### If you submit aligned images")
+        st.write(
+            "Send exactly the 100 official frame pairs for the chosen dataset (200 images total). "
+            "Do not send every frame from the full RAW download."
+        )
+        st.markdown(
+            """
+            | Dataset | Required frame IDs | Number of pairs |
+            |---|---:|---:|
+            | Sunny | `0, 10, 20, ..., 990` | 100 |
+            | Cloudy | `500, 510, 520, ..., 1490` | 100 |
+            | Rainy | `0, 8, 16, ..., 792` | 100 |
+            | Snowy | `1400, 1410, 1420, ..., 2390` | 100 |
+            """
+        )
+        st.write("Use these exact file names inside the aligned-images ZIP:")
+        naming_cols = st.columns(2)
+        with naming_cols[0]:
+            st.markdown("**VIS → SWIR**")
+            st.code(
+                "frame_000000_vis_aligned.png\n"
+                "frame_000000_swir_reference.png",
+                language=None,
+            )
+        with naming_cols[1]:
+            st.markdown("**SWIR → VIS**")
+            st.code(
+                "frame_000000_swir_aligned.png\n"
+                "frame_000000_vis_reference.png",
+                language=None,
+            )
+        st.caption(
+            "Replace 000000 with each required six-digit frame ID. Both images of every pair must have "
+            "the same width and height. PNG, JPG, JPEG, TIF and TIFF are accepted."
+        )
+
         st.markdown(
             f"""
             ### Submit by email
