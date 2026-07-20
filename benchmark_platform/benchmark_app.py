@@ -56,6 +56,16 @@ st.set_page_config(page_title="VIS-SWIR Benchmark", layout="wide")
 
 ONLINE_SUBMISSIONS_ENABLED = False
 EVALUATION_CONTACT_EMAIL = "vis-swir-benchmark@proton.me"
+RAW_RELEASE_BASE_URL = (
+    "https://github.com/lizbethtorresflores/vis-swir-benchmark/"
+    "releases/download/raw-datasets-v1"
+)
+RAW_RELEASE_FILES = {
+    "Sunny": [f"sunny_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(4)],
+    "Cloudy": ["cloudy_full_raw_unaligned_VIS_SWIR.zip"],
+    "Rainy": ["rainy_full_raw_unaligned_VIS_SWIR.zip"],
+    "Snowy": [f"snowy_full_raw_unaligned_VIS_SWIR.zip.part{index:02d}" for index in range(4)],
+}
 
 # Styles globaux de l'app : topbar, cartes de protocole, tableaux et boutons.
 st.markdown(
@@ -1545,6 +1555,38 @@ def page_submit_results() -> None:
         st.warning(
             "Automatic online evaluation is temporarily suspended."
         )
+        st.markdown("### Download Full RAW Unaligned Datasets")
+        st.write(
+            "These are the full unaligned VIS/SWIR datasets used by the local benchmark. "
+            "Cloudy and Rainy are single ZIP downloads. Sunny and Snowy are split into four parts."
+        )
+        download_cols = st.columns(4)
+        for column, (dataset_name, filenames) in zip(download_cols, RAW_RELEASE_FILES.items()):
+            with column:
+                st.markdown(f"**{dataset_name}**")
+                for part_number, filename in enumerate(filenames, start=1):
+                    label = "Download ZIP" if len(filenames) == 1 else f"Download part {part_number}/{len(filenames)}"
+                    st.link_button(label, f"{RAW_RELEASE_BASE_URL}/{filename}", use_container_width=True)
+
+        with st.expander("How to join the Sunny or Snowy parts"):
+            st.write(
+                "Download all four parts into the same folder, then join them. Do not unzip the individual parts."
+            )
+            st.code(
+                "cat sunny_full_raw_unaligned_VIS_SWIR.zip.part00 "
+                "sunny_full_raw_unaligned_VIS_SWIR.zip.part01 "
+                "sunny_full_raw_unaligned_VIS_SWIR.zip.part02 "
+                "sunny_full_raw_unaligned_VIS_SWIR.zip.part03 "
+                "> sunny_full_raw_unaligned_VIS_SWIR.zip\n\n"
+                "cat snowy_full_raw_unaligned_VIS_SWIR.zip.part00 "
+                "snowy_full_raw_unaligned_VIS_SWIR.zip.part01 "
+                "snowy_full_raw_unaligned_VIS_SWIR.zip.part02 "
+                "snowy_full_raw_unaligned_VIS_SWIR.zip.part03 "
+                "> snowy_full_raw_unaligned_VIS_SWIR.zip",
+                language="bash",
+            )
+            st.caption("The reconstructed ZIP is byte-for-byte identical to the original local benchmark ZIP.")
+
         st.markdown(
             f"""
             ### Submit by email
