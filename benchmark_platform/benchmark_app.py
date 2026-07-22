@@ -1948,7 +1948,7 @@ def page_method_details() -> None:
 PAGES = {
     "Leaderboard": page_leaderboard,
     "Compare Methods": page_compare_methods,
-    "Submit Results (Paused)": page_submit_results,
+    "Submit Results": page_submit_results,
     "Method Details": page_method_details,
     "Protocol": page_home,
 }
