@@ -1634,17 +1634,40 @@ def page_submit_results() -> None:
             Until online evaluation is restored, please send your evaluation request to
             **[{EVALUATION_CONTACT_EMAIL}](mailto:{EVALUATION_CONTACT_EMAIL}?subject=VIS-SWIR%20Benchmark%20Submission)**.
 
-            Please include:
+            #### Method information
 
-            - method name, authors and institution;
+            Please include all of the following information in the email:
+
+            - method name;
+            - authors;
+            - institution;
+            - paper or project URL, if available;
+            - contact email;
+            - method description or additional comments;
             - dataset and alignment direction (`VIS → SWIR` or `SWIR → VIS`);
             - number of image pairs used to estimate the homography;
             - the global 3×3 homography matrix, or a download link to the aligned-images ZIP;
-            - runtime, evaluation device and a short description of the method.
+            - runtime and evaluation device.
 
             The benchmark team will run the official evaluation and contact you when the results are ready.
             For large files, please send a download link instead of attaching the ZIP directly to the email.
             """
+        )
+        st.write("You may copy this template into your email:")
+        st.code(
+            "Method name:\n"
+            "Authors:\n"
+            "Institution:\n"
+            "Paper or project URL:\n"
+            "Contact email:\n"
+            "Dataset:\n"
+            "Direction: VIS → SWIR / SWIR → VIS\n"
+            "Number of estimation pairs:\n"
+            "Runtime:\n"
+            "Evaluation device:\n"
+            "Global 3×3 homography or aligned-images ZIP link:\n"
+            "Method description / additional comments:\n",
+            language=None,
         )
         st.info("Leaderboard browsing, method comparison and method details remain available.")
         return
