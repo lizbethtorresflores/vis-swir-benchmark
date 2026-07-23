@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from benchmark_config import LOWER_IS_BETTER, METRIC_COLUMNS
-from benchmark_existing import load_existing_bundle
+from benchmark_existing import load_existing_bundle, normalize_method_name
 from benchmark_storage import load_json, load_metrics
 
 
@@ -96,6 +96,9 @@ def load_method_bundle(method_path: str | Path, diagnostic: bool = True) -> dict
     if not (method_path / "metadata.json").exists():
         return load_existing_bundle(method_path)
     metadata = load_json(method_path / "metadata.json")
+    metadata["method_name"] = normalize_method_name(
+        metadata.get("method_name", method_path.name)
+    )
     runtime = load_json(method_path / "runtime.json") if (method_path / "runtime.json").exists() else {}
     diagnostic_path = method_path / "metrics_full_image_diagnostic.csv"
     metrics = pd.read_csv(diagnostic_path) if diagnostic and diagnostic_path.exists() else load_metrics(method_path)

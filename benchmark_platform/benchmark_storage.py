@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 
 from benchmark_config import LEADERBOARD_PATH, METHODS_ROOT, METRIC_COLUMNS
-from benchmark_existing import discover_existing_methods, existing_leaderboard_rows
+from benchmark_existing import discover_existing_methods, existing_leaderboard_rows, normalize_method_name
 
 
 def ensure_storage() -> None:
@@ -143,6 +143,8 @@ def load_benchmark_leaderboard() -> pd.DataFrame:
     if not frames:
         return pd.DataFrame(columns=leaderboard_columns())
     df = pd.concat(frames, ignore_index=True, sort=False)
+    if "method_name" in df:
+        df["method_name"] = df["method_name"].map(normalize_method_name)
     return df.drop_duplicates(subset=["method_path"], keep="last")
 
 
@@ -197,12 +199,16 @@ def discover_methods() -> list[dict]:
             metadata = load_json(metadata_path)
         except Exception:
             continue
+        metadata = metadata.copy()
+        metadata["method_name"] = normalize_method_name(
+            metadata.get("method_name", method_path.parts[-3])
+        )
         methods.append(
             {
                 **metadata,
                 "method_path": str(method_path),
                 "source": "submitted",
-                "label": f"{metadata.get('method_name', method_path.parts[-3])} | {metadata.get('dataset')} | {metadata.get('direction')}",
+                "label": f"{metadata['method_name']} | {metadata.get('dataset')} | {metadata.get('direction')}",
             }
         )
     return official_method_items(methods)

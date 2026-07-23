@@ -119,20 +119,27 @@ def _training_pairs_from_name(name: str) -> int | float:
     return np.nan
 
 
-def _nice_method_name(name: str) -> str:
-    """Convertit les longs noms de dossiers en labels lisibles pour l'UI."""
+def normalize_method_name(name: str) -> str:
+    """Return the canonical short method name used throughout the UI."""
+    name = str(name).strip()
     aliases = {
         "RASMD_aligned_baseline": "RASMD Aligned",
+        "RASMD baseline": "RASMD Aligned",
     }
     if name in aliases:
         return aliases[name]
-    if name.startswith("opencv_alignment"):
+    if name.startswith("opencv_alignment") or name.startswith("OpenCV global H"):
         return "OpenCV"
-    if name.startswith("patch_RANSAC_HOMOGRAPHY"):
+    if name.startswith("patch_RANSAC_HOMOGRAPHY") or name.startswith("Patch MAGSAC++"):
         return "Patch MAGSAC++"
     if name.startswith("DFM"):
         return "DFM global H"
     return name
+
+
+def _nice_method_name(name: str) -> str:
+    """Backward-compatible wrapper for the canonical UI method name."""
+    return normalize_method_name(name)
 
 
 def _parse_runtime_metrics(path: Path) -> dict:
