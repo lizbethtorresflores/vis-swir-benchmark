@@ -122,16 +122,14 @@ def _training_pairs_from_name(name: str) -> int | float:
 def _nice_method_name(name: str) -> str:
     """Convertit les longs noms de dossiers en labels lisibles pour l'UI."""
     aliases = {
-        "RASMD_aligned_baseline": "RASMD baseline",
+        "RASMD_aligned_baseline": "RASMD Aligned",
     }
     if name in aliases:
         return aliases[name]
     if name.startswith("opencv_alignment"):
-        direction = _direction_from_name(name).replace("_to_", " → ")
-        return f"OpenCV global H {direction}"
+        return "OpenCV"
     if name.startswith("patch_RANSAC_HOMOGRAPHY"):
-        direction = _direction_from_name(name).replace("_to_", " → ")
-        return f"Patch MAGSAC++ {direction}"
+        return "Patch MAGSAC++"
     if name.startswith("DFM"):
         return "DFM global H"
     return name
