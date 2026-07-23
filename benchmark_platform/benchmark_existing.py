@@ -142,9 +142,9 @@ def hardware_for_method(method_name: str, recorded_hardware: object = "") -> str
     """Return the documented hardware used to run a benchmark method."""
     canonical_name = normalize_method_name(method_name)
     if canonical_name in {"Patch MAGSAC++", "OpenCV"}:
-        return "Framboise — Intel i7-7700K / NVIDIA GTX 1080 Ti"
+        return "Intel i7-7700K / NVIDIA GTX 1080 Ti"
     if canonical_name == "RoMa–MIND":
-        return "Crystal"
+        return "Intel i9-9980XE / 2× NVIDIA RTX 2080 Ti"
     if canonical_name == "RASMD Aligned":
         return "-"
     if recorded_hardware is None or pd.isna(recorded_hardware):
@@ -272,10 +272,6 @@ def existing_leaderboard_rows() -> pd.DataFrame:
             row["mind_ssd"] = q.get("mean_mind_ssd", np.nan)
             row["num_test_frames"] = min(100, q.get("num_frames", q.get("num_images", np.nan)))
             row["num_evaluated_pairs"] = row["num_test_frames"]
-            if pd.isna(row["runtime_seconds"]):
-                row["runtime_seconds"] = q.get("quality_eval_time_s", np.nan)
-            if pd.isna(row["fps"]):
-                row["fps"] = q.get("fps_quality_eval", np.nan)
 
         if not reproj_framewise.empty:
             row["reprojection_error"] = pd.to_numeric(
@@ -289,15 +285,6 @@ def existing_leaderboard_rows() -> pd.DataFrame:
             row["reprojection_error"] = r.get("mean_of_mean_error", np.nan)
             row["num_test_frames"] = min(100, r.get("num_frames", row["num_test_frames"]))
             row["num_evaluated_pairs"] = row["num_test_frames"]
-
-        if not reproj_runtime.empty and pd.isna(row["fps"]):
-            rr = reproj_runtime.iloc[0]
-            row["runtime_seconds"] = rr.get("eval_time_s", row["runtime_seconds"])
-            row["fps"] = rr.get("fps", row["fps"])
-        elif not quality_runtime.empty and pd.isna(row["fps"]):
-            qr = quality_runtime.iloc[0]
-            row["runtime_seconds"] = qr.get("quality_eval_time_s", row["runtime_seconds"])
-            row["fps"] = qr.get("fps_quality_eval", row["fps"])
 
         rows.append(row)
 
