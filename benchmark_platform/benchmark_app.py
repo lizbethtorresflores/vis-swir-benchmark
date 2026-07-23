@@ -315,21 +315,21 @@ DISPLAY_COLUMNS = {
     "method_name": "Method name",
     "dataset": "Dataset",
     "direction": "Direction",
-    "edge_f1_8px": "Edge Alignment 8 px",
-    "training_pairs_used": "Training pairs",
     "goa": "GOA",
-    "mind_ssd": "MIND-SSD",
+    "edge_f1_8px": "Edge Alignment 8 px",
+    "mind_ssd": "MIND SSD",
     "reprojection_error": "Reprojection Error",
+    "training_pairs_used": "Training pairs",
     "runtime_seconds": "Runtime",
-    "fps": "FPS",
+    "hardware": "Hardware",
     "common_frames": "Common frames",
     "submission_type": "Submission",
     "num_evaluated_pairs": "# Pairs",
     "subset_id": "Official Subset",
 }
 PLOT_METRICS = ["goa", "edge_f1_8px", "mind_ssd", "reprojection_error"]
-LEADERBOARD_RANK_METRICS = ["GOA", "Edge Alignment", "MIND-SSD", "Reprojection Error", "Runtime", "FPS"]
-COMPARE_RANK_METRICS = ["GOA", "Edge Alignment", "MIND-SSD", "Reprojection Error"]
+LEADERBOARD_RANK_METRICS = ["GOA", "Edge Alignment", "MIND SSD", "Reprojection Error", "Runtime"]
+COMPARE_RANK_METRICS = ["GOA", "Edge Alignment", "MIND SSD", "Reprojection Error"]
 
 
 def render_step(title: str, body: str | None = None) -> None:
@@ -737,7 +737,7 @@ def official_leaderboard_view(df: pd.DataFrame) -> pd.DataFrame:
 def format_table(df: pd.DataFrame) -> pd.DataFrame:
     """Prepare une table lisible pour l'interface avec noms de colonnes et arrondis."""
     table = df.copy()
-    numeric_cols = ["goa", "edge_f1_8px", "mind_ssd", "reprojection_error", "runtime_seconds", "fps"]
+    numeric_cols = ["goa", "edge_f1_8px", "mind_ssd", "reprojection_error", "runtime_seconds"]
     for col in numeric_cols:
         if col in table:
             table[col] = pd.to_numeric(table[col], errors="coerce")
@@ -786,18 +786,17 @@ def method_info_table(metadata: dict, runtime: dict) -> pd.DataFrame:
         return not pd.isna(value)
 
     estimation_pairs = metadata.get("estimation_pairs_used", metadata.get("training_pairs_used", ""))
+    runtime_seconds = runtime.get("runtime_seconds", runtime.get("runtime_total_s", ""))
+    hardware = runtime.get("hardware", runtime.get("device", metadata.get("hardware", "")))
     rows = [
         ("Method Name", metadata.get("method_name", "")),
         ("Dataset", display_dataset(metadata.get("dataset", ""))),
         ("Direction", pretty_direction(metadata.get("direction", ""))),
-        ("Number of Estimation Pairs", estimation_pairs),
     ]
-    runtime_seconds = runtime.get("runtime_seconds", runtime.get("runtime_total_s", ""))
-    fps = runtime.get("fps", runtime.get("fps_global", ""))
     if has_value(runtime_seconds):
         rows.append(("Runtime", runtime_seconds))
-    if has_value(fps):
-        rows.append(("FPS", fps))
+    rows.append(("Number of Estimation Pairs", estimation_pairs if has_value(estimation_pairs) else "-"))
+    rows.append(("Hardware", hardware if has_value(hardware) else "-"))
     return pd.DataFrame(rows, columns=["Field", "Value"])
 
 
@@ -908,7 +907,7 @@ def metric_summary_table(metrics: pd.DataFrame) -> pd.DataFrame:
     for column, label in [
         ("goa", "GOA"),
         ("edge_f1_8px", "Edge Alignment"),
-        ("mind_ssd", "MIND-SSD"),
+        ("mind_ssd", "MIND SSD"),
         ("reprojection_error", "Reprojection Error"),
     ]:
         if column not in metrics:
@@ -1144,7 +1143,7 @@ def render_method_mind_map(method_path: Path) -> None:
             fig, ax = plt.subplots(figsize=(8.2, 5.2), constrained_layout=True)
             image = ax.imshow(mind_map, cmap="jet", vmin=float(vmin), vmax=float(vmax))
             ax.axis("off")
-            fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04, label="MIND-SSD")
+            fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04, label="MIND SSD")
             left, center, right = st.columns([1, 2, 1])
             center.pyplot(fig, use_container_width=True)
             plt.close(fig)
@@ -1324,7 +1323,7 @@ def page_home() -> None:
   <div class="workflow-arrow">↓</div>
   <div class="workflow-step">Final aligned outputs<span>evaluate the images produced by each method</span></div>
   <div class="workflow-arrow">↓</div>
-  <div class="workflow-step">GOA / Edge Alignment / MIND-SSD / Reprojection Error<span>same official metrics</span></div>
+  <div class="workflow-step">GOA / Edge Alignment / MIND SSD / Reprojection Error<span>same official metrics</span></div>
   <div class="workflow-arrow">↓</div>
   <div class="workflow-step">Leaderboard<span>only official subset evaluations enter the ranking</span></div>
 </div>
@@ -1342,7 +1341,7 @@ def page_home() -> None:
     )
     st.write(
         "Both submission types are evaluated directly from their final aligned images with the same metrics: "
-        "GOA, Edge Alignment, MIND-SSD, and Reprojection Error. The evaluation server must not be used for parameter "
+        "GOA, Edge Alignment, MIND SSD, and Reprojection Error. The evaluation server must not be used for parameter "
         "tuning; participants should choose parameters before submission."
     )
     st.write(
@@ -1425,8 +1424,8 @@ def page_leaderboard() -> None:
     filtered = df[df["dataset"].isin(dataset) & df["direction"].isin(direction)].copy()
     ranked = build_ranking(filtered, metric_label)
     st.caption(
-        "Ranking table: higher GOA, Edge Alignment and FPS are better; "
-        "lower MIND-SSD, reprojection error and runtime are better."
+        "Ranking table: higher GOA and Edge Alignment are better; "
+        "lower MIND SSD, Reprojection Error and runtime are better."
     )
     render_centered_table(format_leaderboard_table(ranked), max_height=620)
 
@@ -1783,7 +1782,10 @@ def page_submit_results() -> None:
             placeholder="Briefly describe the estimation data: training split, full dataset, external data, preprocessing, etc.",
         )
         runtime_seconds_text = st.text_input("Runtime seconds (optional)")
-        fps_text = st.text_input("FPS (optional)")
+        hardware = st.text_input(
+            "Hardware (optional)",
+            placeholder="e.g. NVIDIA RTX 4090, Apple M3, or CPU model",
+        )
         device = st.selectbox("Evaluation device", ["auto", "cpu", "cuda"], index=0)
 
         st.markdown("### Submission")
@@ -1845,7 +1847,6 @@ def page_submit_results() -> None:
         try:
             render_step("Step 4: Validation")
             runtime_seconds = float(runtime_seconds_text) if runtime_seconds_text.strip() else None
-            fps = float(fps_text) if fps_text.strip() else None
             metadata = {
                 "method_name": method_name,
                 "authors": authors,
@@ -1868,7 +1869,7 @@ def page_submit_results() -> None:
             }
             runtime = {
                 "runtime_seconds": runtime_seconds,
-                "fps": fps,
+                "hardware": hardware.strip(),
             }
             if submission_type == "Homography-based submission":
                 if h_mode == "Manual Input" and not (H_text or "").strip():

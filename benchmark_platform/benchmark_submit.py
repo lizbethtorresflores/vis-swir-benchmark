@@ -102,6 +102,7 @@ def _save_runtime_and_leaderboard(
     row = {
         **metadata,
         **summary,
+        "hardware": runtime.get("hardware", runtime.get("device")),
         "num_test_frames": num_pairs,
         "num_evaluated_pairs": num_pairs,
         "validation_status": "passed",
@@ -134,7 +135,7 @@ def submit_homography_based(
     metadata["num_evaluated_pairs"] = len(subset_pairs)
     runtime = {
         "runtime_seconds": runtime_input.get("runtime_seconds"),
-        "fps": runtime_input.get("fps"),
+        "hardware": runtime_input.get("hardware"),
     }
     save_method_artifacts(method_path, metadata, H, runtime)
     save_json(method_path / "subset_manifest.json", manifest)
@@ -161,7 +162,7 @@ def submit_homography_based(
         raise
     runtime = {
         "runtime_seconds": runtime.get("runtime_seconds"),
-        "fps": runtime.get("fps"),
+        "hardware": runtime.get("hardware"),
         "evaluation_runtime_seconds": eval_runtime["runtime_seconds"],
         "evaluation_fps": eval_runtime["fps"],
         "device": eval_runtime["device"],
@@ -200,7 +201,7 @@ def submit_aligned_image_based(
     metadata["num_evaluated_pairs"] = len(uploaded_pairs)
     runtime = {
         "runtime_seconds": runtime_input.get("runtime_seconds"),
-        "fps": runtime_input.get("fps"),
+        "hardware": runtime_input.get("hardware"),
     }
     method_path.mkdir(parents=True, exist_ok=True)
     save_json(method_path / "metadata.json", metadata)
@@ -228,7 +229,7 @@ def submit_aligned_image_based(
         raise
     runtime = {
         "runtime_seconds": runtime.get("runtime_seconds"),
-        "fps": runtime.get("fps"),
+        "hardware": runtime.get("hardware"),
         "evaluation_runtime_seconds": eval_runtime["runtime_seconds"],
         "evaluation_fps": eval_runtime["fps"],
         "device": eval_runtime["device"],
@@ -251,7 +252,7 @@ def submit_method(metadata: dict, H, runtime_input: dict, device: str = "auto") 
     metadata["submission_version"] = version
     runtime = {
         "runtime_seconds": runtime_input.get("runtime_seconds"),
-        "fps": runtime_input.get("fps"),
+        "hardware": runtime_input.get("hardware"),
     }
     save_method_artifacts(method_path, metadata, H, runtime)
     try:
@@ -273,7 +274,7 @@ def submit_method(metadata: dict, H, runtime_input: dict, device: str = "auto") 
         raise
     runtime = {
         "runtime_seconds": runtime.get("runtime_seconds"),
-        "fps": runtime.get("fps"),
+        "hardware": runtime.get("hardware"),
         "evaluation_runtime_seconds": eval_runtime["runtime_seconds"],
         "evaluation_fps": eval_runtime["fps"],
         "device": eval_runtime["device"],

@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from benchmark_config import LOWER_IS_BETTER, METRIC_COLUMNS
-from benchmark_existing import load_existing_bundle, normalize_method_name
+from benchmark_existing import hardware_for_method, load_existing_bundle, normalize_method_name
 from benchmark_storage import load_json, load_metrics
 
 
@@ -100,6 +100,10 @@ def load_method_bundle(method_path: str | Path, diagnostic: bool = True) -> dict
         metadata.get("method_name", method_path.name)
     )
     runtime = load_json(method_path / "runtime.json") if (method_path / "runtime.json").exists() else {}
+    runtime["hardware"] = hardware_for_method(
+        metadata["method_name"],
+        runtime.get("hardware", runtime.get("device")),
+    )
     diagnostic_path = method_path / "metrics_full_image_diagnostic.csv"
     metrics = pd.read_csv(diagnostic_path) if diagnostic and diagnostic_path.exists() else load_metrics(method_path)
     return {"path": method_path, "metadata": metadata, "runtime": runtime, "metrics": metrics}

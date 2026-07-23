@@ -21,19 +21,17 @@ DIRECTIONS = ["VIS_to_SWIR", "SWIR_to_VIS"]
 METRIC_COLUMNS = {
     "GOA": "goa",
     "Edge Alignment": "edge_f1_8px",
-    "MIND-SSD": "mind_ssd",
+    "MIND SSD": "mind_ssd",
     "Reprojection Error": "reprojection_error",
     "Runtime": "runtime_seconds",
-    "FPS": "fps",
 }
 
 LOWER_IS_BETTER = {
     "GOA": False,
     "Edge Alignment": False,
-    "MIND-SSD": True,
+    "MIND SSD": True,
     "Reprojection Error": True,
     "Runtime": True,
-    "FPS": False,
 }
 
 # A fixed, public protocol. Methods may use any training pairs, but all

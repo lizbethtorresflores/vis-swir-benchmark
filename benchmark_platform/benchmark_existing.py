@@ -123,6 +123,7 @@ def normalize_method_name(name: str) -> str:
     """Return the canonical short method name used throughout the UI."""
     name = str(name).strip()
     aliases = {
+        "Mouad": "RoMa–MIND",
         "RASMD_aligned_baseline": "RASMD Aligned",
         "RASMD baseline": "RASMD Aligned",
     }
@@ -135,6 +136,21 @@ def normalize_method_name(name: str) -> str:
     if name.startswith("DFM"):
         return "DFM global H"
     return name
+
+
+def hardware_for_method(method_name: str, recorded_hardware: object = "") -> str:
+    """Return the documented hardware used to run a benchmark method."""
+    canonical_name = normalize_method_name(method_name)
+    if canonical_name in {"Patch MAGSAC++", "OpenCV"}:
+        return "Framboise — Intel i7-7700K / NVIDIA GTX 1080 Ti"
+    if canonical_name == "RoMa–MIND":
+        return "Crystal"
+    if canonical_name == "RASMD Aligned":
+        return "-"
+    if recorded_hardware is None or pd.isna(recorded_hardware):
+        return "-"
+    recorded = str(recorded_hardware).strip()
+    return recorded if recorded and recorded.lower() not in {"nan", "none"} else "-"
 
 
 def _nice_method_name(name: str) -> str:
@@ -157,6 +173,9 @@ def _parse_runtime_metrics(path: Path) -> dict:
         key, raw_value = line.split(":", 1)
         key = key.strip().lower()
         raw_value = raw_value.strip().split()[0] if raw_value.strip() else ""
+        if "hardware" in key or key == "device":
+            values["hardware"] = raw_value
+            continue
         try:
             value = float(raw_value)
         except ValueError:
@@ -228,6 +247,7 @@ def existing_leaderboard_rows() -> pd.DataFrame:
             "reprojection_error": np.nan,
             "runtime_seconds": runtime.get("runtime_seconds", np.nan),
             "fps": runtime.get("fps", np.nan),
+            "hardware": hardware_for_method(method_name, runtime.get("hardware")),
             "num_test_frames": np.nan,
             "num_evaluated_pairs": np.nan,
             "subset_id": official_subset_id(dataset, direction),
@@ -365,6 +385,7 @@ def load_existing_bundle(method_path: str | Path) -> dict:
         "evaluation_protocol": EVALUATION_PROTOCOL,
         "source": "existing",
     }
+    runtime["hardware"] = hardware_for_method(metadata["method_name"], runtime.get("hardware"))
     if not quality_summary.empty:
         q = quality_summary.iloc[0]
         runtime.setdefault("quality_eval_time_s", q.get("quality_eval_time_s", np.nan))

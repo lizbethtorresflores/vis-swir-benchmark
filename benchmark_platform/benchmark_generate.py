@@ -31,7 +31,7 @@ METRICS = {
     },
     "mind_ssd": {
         "title": "MIND SSD",
-        "ylabel": "MIND-SSD",
+        "ylabel": "MIND SSD",
         "direction": "lower is better",
         "frame_name": "mind_frame_by_frame.png",
         "box_name": "mind_boxplot.png",
@@ -71,18 +71,31 @@ def comparison_output_dir(method_paths: list[str | Path]) -> Path:
     return RESULTS_ROOT / "comparisons" / digest
 
 
-def _method_label(bundle: dict) -> str:
-    """Label compact methode/dataset/direction pour graphiques et tables."""
+def _comparison_uses_multiple_datasets(bundles: list[dict]) -> bool:
+    """Return whether dataset names are needed to disambiguate labels."""
+    datasets = {
+        str(bundle.get("metadata", {}).get("dataset", "")).strip()
+        for bundle in bundles
+        if str(bundle.get("metadata", {}).get("dataset", "")).strip()
+    }
+    return len(datasets) > 1
+
+
+def _method_label(bundle: dict, include_dataset: bool = True) -> str:
+    """Build a compact method label, always preserving the alignment direction."""
     metadata = bundle["metadata"]
     label = metadata.get("method_name", Path(bundle["path"]).name)
-    direction = metadata.get("direction", "")
+    direction = str(metadata.get("direction", "")).replace("_to_", " → ")
     dataset = metadata.get("dataset", "")
-    return f"{label} ({dataset}, {direction})"
+    details = [str(dataset), direction] if include_dataset else [direction]
+    details = [detail for detail in details if detail]
+    return f"{label} ({', '.join(details)})" if details else str(label)
 
 
 def _series_by_method(bundles: list[dict], metric: str) -> dict[str, pd.Series]:
     """Extrait une serie numerique par methode pour une metrique donnee."""
     series = {}
+    include_dataset = _comparison_uses_multiple_datasets(bundles)
     for bundle in bundles:
         metrics = bundle["metrics"]
         if metric not in metrics:
@@ -90,7 +103,7 @@ def _series_by_method(bundles: list[dict], metric: str) -> dict[str, pd.Series]:
         values = pd.to_numeric(metrics[metric], errors="coerce").dropna()
         if values.empty:
             continue
-        series[_method_label(bundle)] = values.reset_index(drop=True)
+        series[_method_label(bundle, include_dataset=include_dataset)] = values.reset_index(drop=True)
     return series
 
 
@@ -260,10 +273,11 @@ def _load_mind_raw_map(method_path: Path) -> np.ndarray | None:
 def generate_mind_global_comparison_panel(bundles: list[dict], out_dir: Path) -> None:
     """Genere un panneau MIND avec la meme echelle de couleur pour toutes les methodes."""
     mind_maps: list[tuple[str, np.ndarray | None]] = []
+    include_dataset = _comparison_uses_multiple_datasets(bundles)
     for bundle in bundles:
         method_path = Path(bundle["path"])
         mean_map = _load_mind_raw_map(method_path)
-        mind_maps.append((_method_label(bundle), mean_map))
+        mind_maps.append((_method_label(bundle, include_dataset=include_dataset), mean_map))
 
     if not mind_maps:
         return
@@ -320,7 +334,7 @@ def generate_mind_global_comparison_panel(bundles: list[dict], out_dir: Path) ->
         cv2.imwrite(str(out_dir / f"mind_map_global_{_safe_label(method_name)}.png"), colored)
 
     if image is not None:
-        fig.colorbar(image, ax=axes.ravel().tolist(), fraction=0.025, pad=0.02, label="MIND-SSD")
+        fig.colorbar(image, ax=axes.ravel().tolist(), fraction=0.025, pad=0.02, label="MIND SSD")
     fig.suptitle("MIND map comparison - Global scale", fontsize=14)
     fig.savefig(out_dir / "mind_global_comparison_panel.png", dpi=240)
     plt.close(fig)
@@ -382,15 +396,20 @@ def generate_comparison_artifacts(method_paths: list[str | Path], diagnostic: bo
     ranking_df.to_csv(out_dir / "ranking_methods.csv", index=False)
 
     runtime_rows = []
+    include_dataset = _comparison_uses_multiple_datasets(bundles)
     for bundle in bundles:
         runtime = bundle.get("runtime", {})
         metadata = bundle.get("metadata", {})
         runtime_rows.append({
-            "method": _method_label(bundle),
+            "method": _method_label(bundle, include_dataset=include_dataset),
             "dataset": metadata.get("dataset"),
             "direction": metadata.get("direction"),
             "runtime_total_s": runtime.get("runtime_seconds", runtime.get("runtime_total_s", np.nan)),
-            "fps_global": runtime.get("fps", runtime.get("fps_global", np.nan)),
+            "training_pairs_used": metadata.get(
+                "estimation_pairs_used",
+                metadata.get("training_pairs_used", np.nan),
+            ),
+            "hardware": runtime.get("hardware", runtime.get("device", metadata.get("hardware", ""))),
         })
     pd.DataFrame(runtime_rows).to_csv(out_dir / "runtime_methods.csv", index=False)
     generate_mind_global_comparison_panel(bundles, out_dir)

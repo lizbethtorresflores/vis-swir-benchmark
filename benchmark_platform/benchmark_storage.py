@@ -13,7 +13,12 @@ import numpy as np
 import pandas as pd
 
 from benchmark_config import LEADERBOARD_PATH, METHODS_ROOT, METRIC_COLUMNS
-from benchmark_existing import discover_existing_methods, existing_leaderboard_rows, normalize_method_name
+from benchmark_existing import (
+    discover_existing_methods,
+    existing_leaderboard_rows,
+    hardware_for_method,
+    normalize_method_name,
+)
 
 
 def ensure_storage() -> None:
@@ -36,7 +41,7 @@ def leaderboard_columns() -> list[str]:
         "mind_ssd",
         "reprojection_error",
         "runtime_seconds",
-        "fps",
+        "hardware",
         "num_test_frames",
         "num_evaluated_pairs",
         "submission_type",
@@ -86,7 +91,7 @@ def summarize_metrics(metrics: pd.DataFrame, runtime: dict | None = None) -> dic
     runtime = runtime or {}
     summary = {}
     for label, column in METRIC_COLUMNS.items():
-        if column in {"runtime_seconds", "fps"}:
+        if column == "runtime_seconds":
             summary[column] = runtime.get(column, np.nan)
         elif column in metrics:
             summary[column] = pd.to_numeric(metrics[column], errors="coerce").mean()
@@ -145,6 +150,24 @@ def load_benchmark_leaderboard() -> pd.DataFrame:
     df = pd.concat(frames, ignore_index=True, sort=False)
     if "method_name" in df:
         df["method_name"] = df["method_name"].map(normalize_method_name)
+    if "hardware" not in df:
+        df["hardware"] = np.nan
+    df["hardware"] = df["hardware"].astype(object)
+    for index, row in df.loc[df["hardware"].isna()].iterrows():
+        runtime_path = Path(str(row.get("method_path", ""))) / "runtime.json"
+        if not runtime_path.exists():
+            continue
+        try:
+            runtime = load_json(runtime_path)
+        except Exception:
+            continue
+        hardware = runtime.get("hardware", runtime.get("device"))
+        if hardware not in (None, ""):
+            df.at[index, "hardware"] = hardware
+    df["hardware"] = [
+        hardware_for_method(method_name, hardware)
+        for method_name, hardware in zip(df["method_name"], df["hardware"])
+    ]
     return df.drop_duplicates(subset=["method_path"], keep="last")
 
 

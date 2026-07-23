@@ -48,7 +48,8 @@ DISPLAY_COLUMN_LABELS = {
     "mean_pm_std": "Mean +/- Std",
     "difference_vs_best_percent": "Difference vs best (%)",
     "runtime_total_s": "Runtime total (s)",
-    "fps_global": "FPS",
+    "training_pairs_used": "Training pairs",
+    "hardware": "Hardware",
 }
 
 
@@ -239,7 +240,7 @@ def single_metric_panel(df: pd.DataFrame, metric: str, title: str | None = None)
 
 
 def render_single_method_quality(metrics: pd.DataFrame, method_path: str | Path | None = None) -> None:
-    """Affiche GOA, Edge Alignment, MIND-SSD et la carte MIND d'une methode."""
+    """Affiche GOA, Edge Alignment, MIND SSD et la carte MIND d'une methode."""
     st.markdown("## Quality")
     for metric in ["goa", "edge_f1_8px", "mind_ssd"]:
         if metric in metrics:
@@ -517,11 +518,12 @@ def render_single_method_artifact_dir(comparison_dir: str | Path) -> bool:
     if runtime_path.exists():
         runtime_df = pd.read_csv(runtime_path)
         runtime_df = _sort_runtime_table(runtime_df)
-        value_cols = [col for col in ["runtime_total_s", "fps_global"] if col in runtime_df]
-        has_runtime_values = any(
-            pd.to_numeric(runtime_df[col], errors="coerce").notna().any()
-            for col in value_cols
-        )
+        value_cols = [
+            col
+            for col in ["runtime_total_s", "training_pairs_used", "hardware"]
+            if col in runtime_df
+        ]
+        has_runtime_values = any(runtime_df[col].notna().any() for col in value_cols)
         if not runtime_df.empty and has_runtime_values:
             st.markdown("### Runtime table")
             render_centered_table(_display_table(runtime_df, drop_columns=["dataset", "direction"]))
