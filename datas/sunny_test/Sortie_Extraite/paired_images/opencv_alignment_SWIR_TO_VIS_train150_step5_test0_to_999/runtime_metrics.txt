@@ -14,11 +14,17 @@ Test end             : 999
 ORB features         : 5000
 RANSAC threshold     : 5.0
 
-Temps homographie    : 27.2368 s
-FPS homographie      : 5.5073
+Crop mode            : strict
+Crop references      : 30
+Crop margin          : 10
+Crop rect            : x=125:1950, y=156:1526
+Crop size            : 1825 x 1370
 
-Temps application    : 1760.0293 s
-FPS application      : 0.5682
+Temps homographie    : 32.2088 s
+FPS homographie      : 4.6571
 
-Temps total          : 1787.2671 s
-FPS global           : 0.5595
+Temps application    : 52.3211 s
+FPS application      : 19.1127
+
+Temps total          : 136.2254 s
+FPS global           : 7.3408
