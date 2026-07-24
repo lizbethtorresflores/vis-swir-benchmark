@@ -1,0 +1,8 @@
+{
+  "runtime_seconds": null,
+  "fps": null,
+  "hardware": "Intel i9-9980XE / 2\u00d7 NVIDIA RTX 2080 Ti",
+  "device": "cpu",
+  "estimation_device": "cuda",
+  "evaluation_protocol": "final_split_images"
+}

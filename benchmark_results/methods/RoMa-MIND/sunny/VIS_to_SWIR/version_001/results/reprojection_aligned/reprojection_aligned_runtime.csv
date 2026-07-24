@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+sunny_test,RoMa-MIND_native_v4_VIS_to_SWIR_official100,100,859.2846488952637,0.11637587163760536,8.592846488952636

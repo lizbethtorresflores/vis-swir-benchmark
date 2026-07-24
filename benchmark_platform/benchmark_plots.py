@@ -95,6 +95,28 @@ def _sort_runtime_table(df: pd.DataFrame) -> pd.DataFrame:
     return table.sort_values("runtime_total_s", ascending=True, na_position="last").reset_index(drop=True)
 
 
+def _runtime_rows_with_information(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove methods whose runtime, training-pair and hardware cells are all empty."""
+    if df.empty:
+        return df
+    value_cols = [
+        col
+        for col in ["runtime_total_s", "training_pairs_used", "hardware"]
+        if col in df
+    ]
+    if not value_cols:
+        return df.iloc[0:0].copy()
+    keep = pd.Series(False, index=df.index)
+    for col in value_cols:
+        values = df[col]
+        normalized = values.astype(str).str.strip().str.lower()
+        present = values.notna() & ~normalized.isin(
+            {"", "-", "nan", "none", "nat", "<na>"}
+        )
+        keep |= present
+    return df.loc[keep].reset_index(drop=True)
+
+
 def _display_table(df: pd.DataFrame, drop_columns: list[str] | None = None) -> pd.DataFrame:
     """Renomme les colonnes techniques en labels lisibles pour la page."""
     table = df.copy()
@@ -109,7 +131,14 @@ def render_centered_table(df: pd.DataFrame, max_height: int = 520) -> None:
     numeric_cols = table.select_dtypes(include=["number"]).columns
     for col in numeric_cols:
         table[col] = table[col].round(4)
-    table = table.astype(object).where(pd.notna(table), "")
+    table = table.astype(object)
+    for col in table.columns:
+        table.loc[table[col].isna(), col] = "-"
+        normalized = table[col].astype(str).str.strip().str.lower()
+        table.loc[
+            normalized.isin({"", "nan", "none", "nat", "<na>"}),
+            col,
+        ] = "-"
     html = table.to_html(
         index=False,
         escape=True,
@@ -446,7 +475,7 @@ def render_comparison_artifact_dir(comparison_dir: str | Path) -> bool:
                     title = "Metric table"
                     drop_columns = ["direction", "rank"]
                 elif table_name == "runtime_methods.csv":
-                    df = _sort_runtime_table(df)
+                    df = _sort_runtime_table(_runtime_rows_with_information(df))
                 elif table_name == "summary_statistics_methods.csv":
                     df = _sort_summary_table(df)
                 st.markdown(f"### {title}")
@@ -517,14 +546,8 @@ def render_single_method_artifact_dir(comparison_dir: str | Path) -> bool:
     runtime_path = comparison_dir / "runtime_methods.csv"
     if runtime_path.exists():
         runtime_df = pd.read_csv(runtime_path)
-        runtime_df = _sort_runtime_table(runtime_df)
-        value_cols = [
-            col
-            for col in ["runtime_total_s", "training_pairs_used", "hardware"]
-            if col in runtime_df
-        ]
-        has_runtime_values = any(runtime_df[col].notna().any() for col in value_cols)
-        if not runtime_df.empty and has_runtime_values:
+        runtime_df = _sort_runtime_table(_runtime_rows_with_information(runtime_df))
+        if not runtime_df.empty:
             st.markdown("### Runtime table")
             render_centered_table(_display_table(runtime_df, drop_columns=["dataset", "direction"]))
             shown = True

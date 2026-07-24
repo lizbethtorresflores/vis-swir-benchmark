@@ -1,0 +1,2 @@
+dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+Sortie_Extraite,RoMa-MIND_native_v4_VIS_to_SWIR_official100,100,509.609217,0.196229,5.096092,cpu,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.
