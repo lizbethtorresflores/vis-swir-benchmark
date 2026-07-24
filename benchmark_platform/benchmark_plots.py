@@ -384,13 +384,18 @@ def render_existing_comparison_panels(dataset: str) -> bool:
     for table_name in ["ranking_methods.csv", "summary_statistics_methods.csv", "runtime_methods.csv"]:
         table_path = comparison_dir / table_name
         if table_path.exists():
+            table_df = _read_generated_csv(table_path)
+            if table_name == "runtime_methods.csv":
+                table_df = _sort_runtime_table(_runtime_rows_with_information(table_df))
+            if table_df.empty:
+                continue
             table_label = {
                 "ranking_methods.csv": "Ranking table",
                 "summary_statistics_methods.csv": "Summary statistics table",
                 "runtime_methods.csv": "Runtime table",
             }.get(table_name, "Results table")
             st.markdown(f"### {table_label}")
-            render_centered_table(_read_generated_csv(table_path))
+            render_centered_table(table_df)
             shown = True
     return shown
 

@@ -511,15 +511,20 @@ def show_existing_table(path: Path, table_type=None):
     df = read_csv_cached(path)
 
     if table_type == "runtime":
-
-        # Remove RASMD
-        df = df[
-            ~df["method"].astype(str).str.contains(
-                "RASMD",
-                case=False,
-                na=False
-            )
+        value_columns = [
+            column
+            for column in ["runtime_total_s", "training_pairs_used", "hardware"]
+            if column in df.columns
         ]
+        if value_columns:
+            has_information = pd.Series(False, index=df.index)
+            for column in value_columns:
+                values = df[column]
+                normalized = values.astype(str).str.strip().str.lower()
+                has_information |= values.notna() & ~normalized.isin(
+                    {"", "-", "nan", "none", "nat", "<na>"}
+                )
+            df = df.loc[has_information].copy()
 
         # Remove dataset
         df = df.drop(
@@ -534,6 +539,15 @@ def show_existing_table(path: Path, table_type=None):
             "runtime_hms": "Time",
             "fps_global": "FPS global"
         })
+
+    df = df.astype(object)
+    for column in df.columns:
+        df.loc[df[column].isna(), column] = "-"
+        normalized = df[column].astype(str).str.strip().str.lower()
+        df.loc[
+            normalized.isin({"", "nan", "none", "nat", "<na>"}),
+            column,
+        ] = "-"
 
     if table_type == "ranking":
         df = df.drop(columns=["direction", "p95", "diff_vs_best_mean"], errors="ignore")
