@@ -1,9 +1,10 @@
 {
-  "runtime_seconds": 32282.907522507987,
-  "fps": 0.00464642163644704,
+  "runtime_seconds": null,
+  "fps": null,
   "evaluation_runtime_seconds": 2295.5239220497897,
   "evaluation_fps": 0.04356303980953722,
   "device": "cpu",
   "estimation_device": "cuda",
-  "evaluation_protocol": "final_split_images"
+  "evaluation_protocol": "final_split_images",
+  "hardware": "Intel i9-9980XE / 2\u00d7 NVIDIA RTX 2080 Ti"
 }
