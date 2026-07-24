@@ -1,0 +1,20 @@
+{
+  "method_name": "Mouad",
+  "dataset": "sunny",
+  "direction": "SWIR_to_VIS",
+  "training_pairs_used": 150,
+  "authors": "",
+  "institution": "",
+  "paper_url": "",
+  "contact_email": "",
+  "submission_date": "2026-07-24T10:04:55.447292+00:00",
+  "description": "RoMa outdoor correspondences, RANSAC initialization and global MIND-SSD homography optimization with cross-validated regularization.",
+  "subset_id": "sunny_SWIR_to_VIS_official_leaderboard_100",
+  "submission_type": "aligned_images",
+  "single_global_homography_confirmed": true,
+  "estimation_pairs_used": 150,
+  "estimation_data_description": "Sunny frames 0..745 with step 5 (150 pairs).",
+  "evaluation_protocol": "final_split_images",
+  "submission_version": 1,
+  "num_evaluated_pairs": 100
+}

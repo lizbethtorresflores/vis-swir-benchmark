@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+sunny_test,Mouad_native_v4_SWIR_to_VIS_official100,100,1470.5970170497894,0.0679995939340426,14.705970170497894
