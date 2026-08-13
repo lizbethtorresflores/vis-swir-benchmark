@@ -1,0 +1,4 @@
+Dataset: rainy
+Published homography direction: VIS_to_SWIR
+Source: /home/lizbeth/Desktop/intership/cross-spectral-visible-swir-calibration-for-embedded-image-fusion/datas/rainy_test_out_generalized_h_SWIR_to_VIS_native_crop_v4/H_general.npy
+VIS_to_SWIR uses inverse(H_SWIR_to_VIS).

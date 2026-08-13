@@ -1,0 +1,8 @@
+{
+  "runtime_seconds": null,
+  "fps": null,
+  "evaluation_runtime_seconds": null,
+  "evaluation_fps": null,
+  "device": "cpu",
+  "evaluation_protocol": "final_split_images"
+}

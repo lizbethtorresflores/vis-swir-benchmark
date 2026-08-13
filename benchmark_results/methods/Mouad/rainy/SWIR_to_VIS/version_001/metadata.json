@@ -1,0 +1,20 @@
+{
+  "method_name": "Mouad",
+  "dataset": "rainy",
+  "direction": "SWIR_to_VIS",
+  "training_pairs_used": 150,
+  "authors": "",
+  "institution": "",
+  "paper_url": "",
+  "contact_email": "",
+  "submission_date": "2026-08-13T16:56:32.800989+00:00",
+  "description": "Mouad native crop v4",
+  "subset_id": "rainy_SWIR_to_VIS_official_leaderboard_100",
+  "submission_type": "aligned_images",
+  "single_global_homography_confirmed": true,
+  "estimation_pairs_used": 150,
+  "estimation_data_description": "",
+  "evaluation_protocol": "final_split_images",
+  "submission_version": 1,
+  "num_evaluated_pairs": 100
+}
