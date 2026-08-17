@@ -1,5 +1,5 @@
 method,dataset,direction,runtime_total_s,fps_global
-"Mouad (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,,
+"RoMa-MIND (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,,
 "Patch MAGSAC++ SWIR → VIS (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,449.6443,2.224
 "Patch MAGSAC++ VIS → SWIR (cloudy, VIS_to_SWIR)",cloudy,VIS_to_SWIR,418.6955,2.3884
 "RASMD baseline (cloudy, VIS_to_SWIR)",cloudy,VIS_to_SWIR,,

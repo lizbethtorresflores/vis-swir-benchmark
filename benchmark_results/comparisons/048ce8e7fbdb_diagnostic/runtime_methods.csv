@@ -1,4 +1,4 @@
 method,dataset,direction,runtime_total_s,fps_global
-"Mouad (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,,
+"RoMa-MIND (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,,
 "OpenCV global H SWIR → VIS (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,138.3826,7.2263
 "Patch MAGSAC++ SWIR → VIS (cloudy, SWIR_to_VIS)",cloudy,SWIR_to_VIS,449.6443,2.224

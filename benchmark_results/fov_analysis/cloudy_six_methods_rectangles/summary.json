@@ -33,15 +33,15 @@
     "width": 1785,
     "height": 936
   },
-  "smallest_registered_fov": "mouad_swir_to_vis",
-  "most_contained_method": "mouad_swir_to_vis",
-  "main_limiting_method": "mouad_swir_to_vis",
+  "smallest_registered_fov": "roma_mind_swir_to_vis",
+  "most_contained_method": "roma_mind_swir_to_vis",
+  "main_limiting_method": "roma_mind_swir_to_vis",
   "unique_small_reference_exists": true,
   "small_reference_candidates_over_95_percent": [
-    "mouad_swir_to_vis"
+    "roma_mind_swir_to_vis"
   ],
   "transformed_native_corners_in_anchor_coordinates": {
-    "mouad_swir_to_vis": [
+    "roma_mind_swir_to_vis": [
       [
         19.41315269470215,
         18.594770431518555

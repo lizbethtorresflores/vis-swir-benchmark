@@ -1,2 +1,2 @@
 dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
-Sortie_Extraite,Mouad_native_v4_SWIR_to_VIS_official100,100,824.926905,0.121223,8.249269,cpu,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.
+Sortie_Extraite,RoMa-MIND_native_v4_SWIR_to_VIS_official100,100,824.926905,0.121223,8.249269,cpu,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.

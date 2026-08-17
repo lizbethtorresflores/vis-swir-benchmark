@@ -1,5 +1,5 @@
 {
-  "method_name": "RoMa\u2013MIND",
+  "method_name": "RoMa-MIND",
   "dataset": "sunny",
   "direction": "SWIR_to_VIS",
   "training_pairs_used": 150,

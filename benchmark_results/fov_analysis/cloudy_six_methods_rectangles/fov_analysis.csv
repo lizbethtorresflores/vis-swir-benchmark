@@ -1,5 +1,5 @@
 method,native_width,native_height,registered_area,area_rank,common_coverage_of_method,excess_area_outside_common,containment_in_other_5,common_area_without_method,absolute_limiting_gain,relative_limiting_gain,is_smallest_fov_candidate,is_main_limiting_method
-mouad_swir_to_vis,1152,630,1705392,1,0.9796926454445664,34632,0.9796926454445664,1866222,195462,0.11698987287222581,True,True
+roma_mind_swir_to_vis,1152,630,1705392,1,0.9796926454445664,34632,0.9796926454445664,1866222,195462,0.11698987287222581,True,True
 rasmd,1230,718,1889249,2,0.8843514010064316,218489,0.8843514010064316,1705392,34632,0.02072829131652661,False,False
 patch_vis_to_swir,1263,713,1922004,3,0.8692801888029369,251244,0.8872988817921295,1670760,0,0.0,False,False
 patch_swir_to_vis,1909,1075,2005640,4,0.8330308529945554,334880,0.8502981591910812,1670760,0,0.0,False,False

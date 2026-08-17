@@ -1,5 +1,5 @@
 {
-  "method_name": "Mouad",
+  "method_name": "RoMa-MIND",
   "dataset": "cloudy",
   "direction": "VIS_to_SWIR",
   "training_pairs_used": 150,

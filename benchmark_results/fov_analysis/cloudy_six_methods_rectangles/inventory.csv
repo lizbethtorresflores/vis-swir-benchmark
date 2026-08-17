@@ -1,5 +1,5 @@
 method,split_dir,vis_frames,native_width,native_height,native_valid_pixels,mask_mode
-mouad_swir_to_vis,/home/lizbeth/Desktop/intership/cross-spectral-visible-swir-calibration-for-embedded-image-fusion/datas/cloudy_test_out_generalized_h/split_images,1000,1152,630,725760,rectangle
+roma_mind_swir_to_vis,/home/lizbeth/Desktop/intership/cross-spectral-visible-swir-calibration-for-embedded-image-fusion/datas/cloudy_test_out_generalized_h/split_images,1000,1152,630,725760,rectangle
 opencv_swir_to_vis,/home/lizbeth/Desktop/intership/recallage-multimodal-zz3/datas/cloudy_test/Sortie_Extraite/paired_images/opencv_alignment_SWIR_TO_VIS_train150_step5_test500_to_1499/split_images,1000,1850,1374,2541900,rectangle
 opencv_vis_to_swir,/home/lizbeth/Desktop/intership/recallage-multimodal-zz3/datas/cloudy_test/Sortie_Extraite/paired_images/opencv_alignment_VIS_TO_SWIR_train150_step5_test500_to_1499/split_images,1000,1276,932,1189232,rectangle
 patch_swir_to_vis,/home/lizbeth/Desktop/intership/recallage-multimodal-zz3/datas/cloudy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle/split_images,1000,1909,1075,2052175,rectangle
