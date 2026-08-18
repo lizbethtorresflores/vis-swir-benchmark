@@ -54,7 +54,13 @@ def official_subset_frame_ids(dataset: str) -> list[int]:
     split = FIXED_TEST_SPLITS[dataset]
     step = OFFICIAL_LEADERBOARD_STEPS[dataset]
     frame_ids = list(range(split["start"], split["end"] + 1, step))
-    return frame_ids[:OFFICIAL_LEADERBOARD_SUBSET_SIZE]
+    frame_ids = frame_ids[:OFFICIAL_LEADERBOARD_SUBSET_SIZE]
+    if len(frame_ids) != OFFICIAL_LEADERBOARD_SUBSET_SIZE:
+        raise ValueError(
+            f"The official {dataset} subset must define exactly "
+            f"{OFFICIAL_LEADERBOARD_SUBSET_SIZE} frame IDs; found {len(frame_ids)}."
+        )
+    return frame_ids
 
 
 def available_subsets(dataset: str, direction: str | None = None, max_pairs: int = MAX_SUBSET_PAIRS) -> list[dict]:
@@ -163,7 +169,7 @@ def get_subset_pairs(
     direction: str = "VIS_to_SWIR",
     max_pairs: int = MAX_SUBSET_PAIRS,
 ) -> list[tuple[int, Path, Path]]:
-    """Retourne les chemins RAW VIS/SWIR pour le subset officiel."""
+    """Retourne exactement les 100 paires RAW VIS/SWIR du subset officiel."""
     manifest = build_subset_manifest(dataset, subset_id, direction=direction, max_pairs=max_pairs)
     vis_files = list_image_files(visible_dir(dataset))
     swir_files = list_image_files(swir_dir(dataset))
@@ -177,17 +183,26 @@ def get_subset_pairs(
         for path in swir_files
         if (match := re.search(r"(\d+)$", path.stem)) is not None
     }
-    max_len = min(len(vis_files), len(swir_files))
-    pairs = []
-    for frame_id in manifest["official_subset_frame_ids"]:
-        if frame_id in vis_by_frame and frame_id in swir_by_frame:
-            pairs.append((frame_id, vis_by_frame[frame_id], swir_by_frame[frame_id]))
-        elif frame_id < max_len:
-            # Backward-compatible fallback for datasets whose filenames do not
-            # contain their original frame index.
-            pairs.append((frame_id, vis_files[frame_id], swir_files[frame_id]))
-    if not pairs:
-        raise FileNotFoundError(f"No RAW VIS/SWIR pairs were found for {dataset} / {subset_id}.")
+    expected_ids = manifest["official_subset_frame_ids"]
+    missing_vis_ids = [frame_id for frame_id in expected_ids if frame_id not in vis_by_frame]
+    missing_swir_ids = [frame_id for frame_id in expected_ids if frame_id not in swir_by_frame]
+    if missing_vis_ids or missing_swir_ids:
+        raise FileNotFoundError(
+            f"Official evaluation requires exactly {OFFICIAL_LEADERBOARD_SUBSET_SIZE} "
+            f"VIS/SWIR pairs for {dataset} / {subset_id}. "
+            f"Missing VIS frame IDs: {missing_vis_ids or 'none'}; "
+            f"missing SWIR frame IDs: {missing_swir_ids or 'none'}."
+        )
+
+    pairs = [
+        (frame_id, vis_by_frame[frame_id], swir_by_frame[frame_id])
+        for frame_id in expected_ids
+    ]
+    if len(pairs) != OFFICIAL_LEADERBOARD_SUBSET_SIZE:
+        raise RuntimeError(
+            f"Official evaluation requires exactly {OFFICIAL_LEADERBOARD_SUBSET_SIZE} "
+            f"pairs; resolved {len(pairs)} for {dataset} / {subset_id}."
+        )
     return pairs
 
 
