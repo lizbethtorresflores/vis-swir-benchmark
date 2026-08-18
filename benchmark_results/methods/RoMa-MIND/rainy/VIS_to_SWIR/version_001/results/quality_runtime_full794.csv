@@ -1,0 +1,2 @@
+dataset,method,num_images,quality_eval_time_s,fps_quality_eval,time_per_frame_s,device,note
+cross-spectral-visible-swir-calibration-for-embedded-image-fusion,rainy_test_out_generalized_h_VIS_to_SWIR_native_crop_v6,794,2756.301201,0.288067,3.471412,cpu,This runtime corresponds only to GOA/Edge Alignment/MIND metric evaluation.

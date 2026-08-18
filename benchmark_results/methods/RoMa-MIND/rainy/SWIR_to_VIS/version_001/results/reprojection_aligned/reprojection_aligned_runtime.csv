@@ -1,0 +1,2 @@
+dataset,method,num_images,eval_time_s,fps,time_per_frame_s
+rainy_test,RoMa-MIND_native_v6_SWIR_to_VIS,794,549.027346611023,1.4461939007248326,0.6914702098375604
