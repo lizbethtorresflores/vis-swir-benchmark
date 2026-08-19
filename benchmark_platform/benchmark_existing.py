@@ -17,6 +17,7 @@ from benchmark_subsets import official_subset_frame_ids, official_subset_id
 
 
 EXCLUDED_METHOD_DIRS = {"VISIBLE", "SWIR", "benchmark_comparison_methods"}
+PUBLISHED_EXISTING_METHODS = {"OpenCV", "Patch MAGSAC++", "RASMD Aligned"}
 
 
 def _read_csv(path: Path) -> pd.DataFrame:
@@ -216,6 +217,8 @@ def existing_leaderboard_rows() -> pd.DataFrame:
     rows = []
     for method_path in _method_dirs():
         if not _is_common_crop_variant(method_path):
+            continue
+        if normalize_method_name(method_path.name) not in PUBLISHED_EXISTING_METHODS:
             continue
         results_dir = method_path / "results"
         dataset = _dataset_from_method_path(method_path)
