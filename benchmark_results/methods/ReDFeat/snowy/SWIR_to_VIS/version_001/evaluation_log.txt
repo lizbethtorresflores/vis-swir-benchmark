@@ -1,0 +1,10 @@
+Dataset: snowy
+Direction: SWIR_to_VIS
+Subset: snowy_SWIR_to_VIS_official_leaderboard_100
+Evaluated pairs: 100
+Submission type: homography_based
+Device: cpu
+Geometric valid crop after homography: x=152:2020, y=157:1536, size=1868x1379
+The crop removes only invalid warp borders; it does not remove sky or vehicle content.
+"evaluation_protocol": "final_split_images"
+Reprojection Error: reprojection_aligned.py protocol (SuperPoint + LightGlue, device=cpu)
