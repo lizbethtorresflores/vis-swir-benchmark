@@ -145,6 +145,8 @@ def hardware_for_method(method_name: str, recorded_hardware: object = "") -> str
     canonical_name = normalize_method_name(method_name)
     if canonical_name in {"Patch MAGSAC++", "OpenCV"}:
         return "Intel i7-7700K / NVIDIA GTX 1080 Ti"
+    if canonical_name == "ReDFeat":
+        return "Intel i7-7700K"
     if canonical_name == "RoMa-MIND":
         return "Intel i9-9980XE / 2× NVIDIA RTX 2080 Ti"
     if canonical_name == "DFM global H":
