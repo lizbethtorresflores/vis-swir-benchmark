@@ -1,0 +1,126 @@
+{
+  "created_at_utc": "2026-08-28T15:35:21.751273+00:00",
+  "purpose": "Backup immediately before publishing direct_matches_no_ransac_v1 to Streamlit platform files",
+  "cases": [
+    {
+      "method": "ReDFeat",
+      "weather": "sunny",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 5.985924117565155,
+      "new_mean": 13.352847924232483,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/sunny/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/sunny/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "60efb9d87b0cc5ed2baf0524975ceba3999489944cd7a919f2b48bc7034d3d37"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "sunny",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 8.391052026748657,
+      "new_mean": 19.09887288093567,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/sunny/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/sunny/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "b20aae0ba6475825519832c54737267e5c5eda2c3010bffdf7c8c1737bfefbe8"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "cloudy",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 5.447275996208191,
+      "new_mean": 9.759897418022156,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/cloudy/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/cloudy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "2f774b18a7e53148f7969c4ba3e8783553396a6c392f95c1e5a8bdb1307dee03"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "cloudy",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 6.23926479101181,
+      "new_mean": 11.57071451663971,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/cloudy/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/cloudy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "c561d4dd6fb894759dfba6942cfca5cca6b7147c6b561fa29f140ae7b7b1c193"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "rainy",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 4.674194478988648,
+      "new_mean": 7.580055875778198,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/rainy/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/rainy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "4d9d9ddbf5920da644a1eab88259dd432fbba4cf117d78b493676436d582abc9"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "rainy",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 8.269092166423798,
+      "new_mean": 14.283743867874145,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/rainy/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/rainy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "c5cc8931094ee4e08bdfec5839552649e69900f9ed4a0ece960280273626cf27"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "snowy",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 4.421660666465759,
+      "new_mean": 8.386096892356873,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/snowy/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/snowy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "e65ce5fa480a00918f8d8da76e918c49c30d590e5aa95eca81f3387dfb5606ef"
+    },
+    {
+      "method": "ReDFeat",
+      "weather": "snowy",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 4.566856305599213,
+      "new_mean": 11.211319637298583,
+      "metrics_csv": "benchmark_results/methods/ReDFeat/snowy/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/ReDFeat/snowy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "801a9cfae741304a4de111d3966b4ecb42ad32699bda19f02b781e84fbef0632"
+    },
+    {
+      "method": "RoMa-MIND",
+      "weather": "cloudy",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 4.504135353565216,
+      "new_mean": 5.237764811515808,
+      "metrics_csv": "benchmark_results/methods/RoMa-MIND/cloudy/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/RoMa-MIND/cloudy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "e088e195302d253409233b5e67bbb923576c73ca1576abfcf25a60a7cf067ce8"
+    },
+    {
+      "method": "RoMa-MIND",
+      "weather": "cloudy",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 4.301474540233612,
+      "new_mean": 4.940285279750824,
+      "metrics_csv": "benchmark_results/methods/RoMa-MIND/cloudy/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/RoMa-MIND/cloudy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "3cd8631f8fece233d394b1e41e6b95f7bedf921a1941b3187962c56504a8860e"
+    },
+    {
+      "method": "RoMa-MIND",
+      "weather": "snowy",
+      "direction": "VIS_to_SWIR",
+      "old_mean": 4.13394104719162,
+      "new_mean": 4.147934074401856,
+      "metrics_csv": "benchmark_results/methods/RoMa-MIND/snowy/VIS_to_SWIR/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/RoMa-MIND/snowy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "7c605ccbbad1e9d15bad14e4b199a631c45bd2e345f4348f26b91eb1480ea10f"
+    },
+    {
+      "method": "RoMa-MIND",
+      "weather": "snowy",
+      "direction": "SWIR_to_VIS",
+      "old_mean": 3.8820247507095336,
+      "new_mean": 3.9041172814369203,
+      "metrics_csv": "benchmark_results/methods/RoMa-MIND/snowy/SWIR_to_VIS/version_001/metrics.csv",
+      "framewise_source": "benchmark_results/methods/RoMa-MIND/snowy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "framewise_source_sha256": "d7b0ed8bed0d42aa8a567c38cfdb4e39824df04b7f399bb3664a0271bf1c0ce8"
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+weather,direction,method,metric_x,metric_y,correlation_type,coefficient,n_frames
+cloudy,SWIR_to_VIS,OpenCV,GOA,EDGA,pearson,0.591001434128255,100
+cloudy,SWIR_to_VIS,OpenCV,GOA,EDGA,spearman,0.688197207381972,100
+cloudy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,pearson,-0.299157709930764,100
+cloudy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,spearman,-0.178506590494587,100
+cloudy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,pearson,-0.341548460454207,100
+cloudy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,spearman,-0.321043883230236,100
+cloudy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,pearson,-0.741254188715394,100
+cloudy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,spearman,-0.248209268341648,100
+cloudy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,pearson,0.0436762315705868,100
+cloudy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,spearman,-0.174509450945095,100
+cloudy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,pearson,-0.205964135154998,100
+cloudy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,spearman,-0.0810039532559717,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,pearson,0.659890285322844,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,spearman,0.807071234463783,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.502962087563861,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.623354919309763,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.584894649115467,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.686118903751129,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.795012889622628,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.592690613307938,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.394115088536014,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.602306037524576,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.379594300394323,100
+cloudy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.59386505501319,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,EDGA,pearson,0.58467363109985,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,EDGA,spearman,0.673039303930393,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,pearson,-0.399556498903467,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,spearman,-0.355127512751275,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,pearson,-0.503189177531264,100
+cloudy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,spearman,-0.581470147014701,100
+cloudy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,pearson,-0.782630198628607,100
+cloudy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,spearman,-0.414797479747975,100
+cloudy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,pearson,-0.246398722513933,100
+cloudy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,spearman,-0.48010801080108,100
+cloudy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.0212103258866211,100
+cloudy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.188034803480348,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,pearson,0.576636382222356,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,spearman,0.657461746174617,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,pearson,-0.266302257374597,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,spearman,-0.375553555355536,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.221040309143434,100
+cloudy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.25052505250525,100
+cloudy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.704315254606294,100
+cloudy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,spearman,-0.427146714671467,100
+cloudy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.376404356605859,100
+cloudy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.416381638163816,100
+cloudy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.499626956357495,100
+cloudy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.486048604860486,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,EDGA,pearson,0.54788732569262,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,EDGA,spearman,0.688816948148759,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,pearson,-0.171768935666271,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,spearman,-0.0373664631755011,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,pearson,-0.359347619089084,100
+cloudy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,spearman,-0.38650581010018,100
+cloudy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,pearson,-0.703146710107031,100
+cloudy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,spearman,-0.102688446308636,100
+cloudy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,pearson,0.00187227584600184,100
+cloudy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,spearman,-0.182262226222622,100
+cloudy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,pearson,-0.200258077467194,100
+cloudy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,spearman,-0.144484024338639,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,pearson,0.577588941908463,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,spearman,0.733150112865434,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.330156276794858,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.468649104963102,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.613933101599294,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.700992511211733,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.754026331665819,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.457085076362158,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.436431741368456,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.606588658865887,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.408768680253389,100
+cloudy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.569482455672693,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,pearson,0.526560595151165,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,spearman,0.648444461922892,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,pearson,-0.178402726605879,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,spearman,-0.152693174184275,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,pearson,-0.0622615067218319,100
+cloudy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,spearman,-0.0326379491990506,100
+cloudy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,pearson,-0.699869241197615,100
+cloudy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,spearman,-0.180239276294296,100
+cloudy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,pearson,0.0278061365924382,100
+cloudy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,spearman,-0.0488328832883288,100
+cloudy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,pearson,0.0478641079293474,100
+cloudy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,spearman,0.118707184933279,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,EDGA,pearson,0.532884466539661,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,EDGA,spearman,0.663234323432343,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,pearson,-0.163983060693958,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,spearman,-0.0733513351335134,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,pearson,-0.282732307735456,100
+cloudy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,spearman,-0.299285928592859,100
+cloudy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,pearson,-0.684839281736126,100
+cloudy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,spearman,-0.150543054305431,100
+cloudy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,pearson,-0.110822405346207,100
+cloudy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,spearman,-0.229306930693069,100
+cloudy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,pearson,-0.0300481496262661,100
+cloudy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.138529852985299,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,pearson,0.571011881859588,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,spearman,0.637647764776477,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,pearson,-0.270352135226714,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,spearman,-0.366708670867087,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.217657701175374,100
+cloudy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.233099309930993,100
+cloudy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.703103274947792,100
+cloudy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,spearman,-0.412445244524452,100
+cloudy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.404015652290798,100
+cloudy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.404800480048005,100
+cloudy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.514769280811058,100
+cloudy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.465370537053705,100
+rainy,SWIR_to_VIS,OpenCV,GOA,EDGA,pearson,0.544997407936529,100
+rainy,SWIR_to_VIS,OpenCV,GOA,EDGA,spearman,0.592915415458896,100
+rainy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,pearson,0.0968229870992463,100
+rainy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,spearman,0.0856761340955124,100
+rainy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,pearson,0.282556894452286,100
+rainy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,spearman,0.14725358480697,100
+rainy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,pearson,-0.190820829321951,100
+rainy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,spearman,-0.109786836167926,100
+rainy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,pearson,-0.17024608269226,100
+rainy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,spearman,-0.193730535440244,100
+rainy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.617271923939246,100
+rainy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.651731653184936,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,pearson,0.697139819856708,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,spearman,0.708260073822347,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.201064979909493,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.232238242257417,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.434458899331591,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.508754980594461,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.189943733045967,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.158095319623373,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.227844180207472,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.306990224896276,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.553594106990621,100
+rainy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.505845502605371,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,EDGA,pearson,0.629682293969886,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,EDGA,spearman,0.636903690369037,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,pearson,-0.0280908968687072,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,spearman,-0.0663306330633063,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,pearson,-0.129805400521487,100
+rainy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,spearman,-0.137353735373537,100
+rainy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,pearson,-0.194484412238499,100
+rainy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,spearman,-0.118367836783678,100
+rainy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,pearson,-0.198125478523885,100
+rainy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,spearman,-0.234491449144914,100
+rainy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.537828131122686,100
+rainy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.452121212121212,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,pearson,0.635207662059697,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,spearman,0.663998343826498,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,pearson,-0.193030643889532,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,spearman,-0.222261565839748,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.377598417063157,100
+rainy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.393405241647053,100
+rainy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.0341841411643276,100
+rainy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,spearman,-0.000411091675976838,100
+rainy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.113096852962572,100
+rainy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.1328060774466,100
+rainy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.673265406906033,100
+rainy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.656626492444116,100
+rainy,VIS_to_SWIR,OpenCV,GOA,EDGA,pearson,0.555365433002036,100
+rainy,VIS_to_SWIR,OpenCV,GOA,EDGA,spearman,0.599363321094975,100
+rainy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,pearson,0.204633866720813,100
+rainy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,spearman,0.183164351017354,100
+rainy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,pearson,0.253503941259017,100
+rainy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,spearman,0.137158184688015,100
+rainy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,pearson,-0.0350586310607433,100
+rainy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,spearman,0.0871777793856331,100
+rainy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,pearson,-0.0631263810166947,100
+rainy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,spearman,-0.0673571398580375,100
+rainy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.664101067055024,100
+rainy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.647615334505275,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,pearson,0.639366322869864,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,spearman,0.648801505008386,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.13762272633081,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.182217008848678,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.450472780553881,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.516467393808397,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.0612820751851519,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,0.00428802058294515,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.198301905591246,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.240799524753959,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.586870160754914,100
+rainy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.56166431101451,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,pearson,0.707620803351421,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,spearman,0.728237747370445,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,pearson,-0.348154378359249,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,spearman,-0.390552095031519,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,pearson,-0.523202410905038,100
+rainy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,spearman,-0.598969084580604,100
+rainy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,pearson,-0.173584585716924,100
+rainy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,spearman,-0.162193710400142,100
+rainy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,pearson,-0.233694289371601,100
+rainy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,spearman,-0.287285590417106,100
+rainy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,pearson,0.658803751312121,100
+rainy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,spearman,0.666074545833389,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,EDGA,pearson,0.61386365508986,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,EDGA,spearman,0.657557755775578,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,pearson,0.17412865373521,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,spearman,0.155487548754875,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,pearson,0.0126483051015891,100
+rainy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,spearman,-0.0663786378637864,100
+rainy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,pearson,-0.0344229218717823,100
+rainy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,spearman,0.0736033603360336,100
+rainy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,pearson,-0.181861379628345,100
+rainy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,spearman,-0.218001800180018,100
+rainy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.559311865068426,100
+rainy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.51026702670267,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,pearson,0.62387426334853,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,spearman,0.64410227485273,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,pearson,-0.173593694316611,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,spearman,-0.202842929893667,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.385410005992315,100
+rainy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.401658575816267,100
+rainy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.0338205940336535,100
+rainy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,spearman,0.0452573148379816,100
+rainy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.148109181663889,100
+rainy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.143738373837384,100
+rainy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.648953929912356,100
+rainy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.6263345906957,100
+snowy,SWIR_to_VIS,OpenCV,GOA,EDGA,pearson,0.0401496039686196,100
+snowy,SWIR_to_VIS,OpenCV,GOA,EDGA,spearman,-0.0504346156271867,100
+snowy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,pearson,-0.533449485035046,100
+snowy,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,spearman,-0.42034963840285,100
+snowy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,pearson,-0.240379318534135,100
+snowy,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,spearman,-0.273784770765694,100
+snowy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,pearson,-0.101051254231825,100
+snowy,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,spearman,-0.0826379764693542,100
+snowy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,pearson,-0.0824113538939336,100
+snowy,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,spearman,0.0134296652823632,100
+snowy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.0864658643033017,100
+snowy,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.16164478193757,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,pearson,0.286079473319956,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,spearman,0.283178459049933,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.73497084333864,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.512368232020369,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.555553612305889,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.26311383683228,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.362620923279622,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.367107138650223,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.333797308934607,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.361435155415378,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.873903063468999,100
+snowy,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.776335763105256,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,EDGA,pearson,-0.047498877272563,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,EDGA,spearman,-0.113951395139514,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,pearson,-0.603775033290486,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,spearman,-0.539033903390339,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,pearson,-0.226833009564613,100
+snowy,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,spearman,-0.191863186318632,100
+snowy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,pearson,-0.0307540089042524,100
+snowy,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,spearman,-0.0715631563156316,100
+snowy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,pearson,-0.181561173303744,100
+snowy,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,spearman,-0.101914191419142,100
+snowy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.0927842612064429,100
+snowy,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.0971137113711371,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,pearson,0.16778394234099,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,spearman,0.225826002428366,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,pearson,-0.80841127473296,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,spearman,-0.755775943054817,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.673440321694309,100
+snowy,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.614206633831997,100
+snowy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.269806741410157,100
+snowy,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,spearman,-0.329001531007414,100
+snowy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.225711852616554,100
+snowy,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.196683438502763,100
+snowy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.836602128814388,100
+snowy,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.693474169310664,100
+snowy,VIS_to_SWIR,OpenCV,GOA,EDGA,pearson,-0.114474317134554,100
+snowy,VIS_to_SWIR,OpenCV,GOA,EDGA,spearman,-0.134696339152668,100
+snowy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,pearson,-0.414601107268671,100
+snowy,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,spearman,-0.280323839752907,100
+snowy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,pearson,-0.322301775288235,100
+snowy,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,spearman,-0.364397371822337,100
+snowy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,pearson,-0.162563534932609,100
+snowy,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,spearman,-0.185844819429693,100
+snowy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,pearson,0.0424550216247772,100
+snowy,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,spearman,0.120986639410049,100
+snowy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.0703783517515047,100
+snowy,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.038162177648805,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,pearson,0.148250600311582,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,spearman,0.210069611141565,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.671717199164758,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.464334074734303,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.551065749368136,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.289632783469085,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.277965835777778,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.346340056196528,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.217427956988731,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.301714128143348,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.865331463521899,100
+snowy,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.757555603056486,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,pearson,0.024210076340519,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,spearman,0.0492911472165682,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,pearson,-0.484625737237613,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,spearman,-0.373670643335531,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,pearson,-0.36663739484583,100
+snowy,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,spearman,-0.321170861745098,100
+snowy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,pearson,-0.181323531082232,100
+snowy,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,spearman,-0.232676974369289,100
+snowy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,pearson,-0.105347411813585,100
+snowy,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,spearman,-0.0744932371828674,100
+snowy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,pearson,0.250752816981192,100
+snowy,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,spearman,0.162510372672485,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,EDGA,pearson,-0.115587989751448,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,EDGA,spearman,-0.0685868586858686,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,pearson,-0.452180998737881,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,spearman,-0.29006900690069,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,pearson,-0.00027806176758854,100
+snowy,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,spearman,0.101302130213021,100
+snowy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,pearson,-0.205614853027654,100
+snowy,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,spearman,-0.231347134713471,100
+snowy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,pearson,-0.0200532614897434,100
+snowy,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,spearman,-0.0667026702670267,100
+snowy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.139751000198557,100
+snowy,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.0698589858985899,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,pearson,0.13177571213938,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,spearman,0.165022938206978,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,pearson,-0.790713350965826,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,spearman,-0.718553826457323,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,pearson,-0.654263112008756,100
+snowy,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,spearman,-0.566021884985734,100
+snowy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,pearson,-0.251519146376643,100
+snowy,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,spearman,-0.291164536291997,100
+snowy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.245612349084109,100
+snowy,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,spearman,-0.192051509782925,100
+snowy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.82807319211928,100
+snowy,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.683454020237454,100
+sunny,SWIR_to_VIS,OpenCV,GOA,EDGA,pearson,0.378665371397663,100
+sunny,SWIR_to_VIS,OpenCV,GOA,EDGA,spearman,0.389807319582893,100
+sunny,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,pearson,0.502232286210949,100
+sunny,SWIR_to_VIS,OpenCV,GOA,MIND_SSD,spearman,0.467547023033485,100
+sunny,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,pearson,0.190965193245746,100
+sunny,SWIR_to_VIS,OpenCV,GOA,Reprojection_Error,spearman,0.273484989413801,100
+sunny,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,pearson,0.0745242708109578,100
+sunny,SWIR_to_VIS,OpenCV,EDGA,MIND_SSD,spearman,0.120093520119998,100
+sunny,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,pearson,0.401032395124705,100
+sunny,SWIR_to_VIS,OpenCV,EDGA,Reprojection_Error,spearman,0.481200120012001,100
+sunny,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.202593280924824,100
+sunny,SWIR_to_VIS,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.175362469203611,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,pearson,0.460243033062713,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,EDGA,spearman,0.535309560601878,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,pearson,-0.153607311388716,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,MIND_SSD,spearman,-0.190894199986537,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.229321291537279,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.169686495834919,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,-0.00498224024108256,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,-0.0625568340925891,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.261651825020498,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.207922039739955,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.577389545502539,100
+sunny,SWIR_to_VIS,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.578376400187398,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,EDGA,pearson,0.363851618314334,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,EDGA,spearman,0.398175817581758,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,pearson,0.48929920017031,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,MIND_SSD,spearman,0.546198619861986,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,pearson,0.123483871686727,100
+sunny,SWIR_to_VIS,ReDFeat,GOA,Reprojection_Error,spearman,0.188214821482148,100
+sunny,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,pearson,0.230930578476945,100
+sunny,SWIR_to_VIS,ReDFeat,EDGA,MIND_SSD,spearman,0.290633063306331,100
+sunny,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,pearson,0.36298267429483,100
+sunny,SWIR_to_VIS,ReDFeat,EDGA,Reprojection_Error,spearman,0.42960696069607,100
+sunny,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.336055048515594,100
+sunny,SWIR_to_VIS,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.299441944194419,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,pearson,0.431051173785436,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,EDGA,spearman,0.457062789451793,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,pearson,0.169479465601646,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,MIND_SSD,spearman,0.122476234153459,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,pearson,0.017987866832533,100
+sunny,SWIR_to_VIS,RoMa-MIND,GOA,Reprojection_Error,spearman,0.111428151415851,100
+sunny,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,pearson,0.367398536429717,100
+sunny,SWIR_to_VIS,RoMa-MIND,EDGA,MIND_SSD,spearman,0.366385692509239,100
+sunny,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.0589785628480831,100
+sunny,SWIR_to_VIS,RoMa-MIND,EDGA,Reprojection_Error,spearman,0.0146835564572488,100
+sunny,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.591496988632082,100
+sunny,SWIR_to_VIS,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.593792489823721,100
+sunny,VIS_to_SWIR,OpenCV,GOA,EDGA,pearson,0.177622594429636,100
+sunny,VIS_to_SWIR,OpenCV,GOA,EDGA,spearman,0.190840519212187,100
+sunny,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,pearson,0.463162369527887,100
+sunny,VIS_to_SWIR,OpenCV,GOA,MIND_SSD,spearman,0.479281453749222,100
+sunny,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,pearson,0.0210521125850594,100
+sunny,VIS_to_SWIR,OpenCV,GOA,Reprojection_Error,spearman,0.117649882705221,100
+sunny,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,pearson,0.23976081885754,100
+sunny,VIS_to_SWIR,OpenCV,EDGA,MIND_SSD,spearman,0.326316734137671,100
+sunny,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,pearson,0.372408449898571,100
+sunny,VIS_to_SWIR,OpenCV,EDGA,Reprojection_Error,spearman,0.423570357035704,100
+sunny,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,pearson,0.279131298143871,100
+sunny,VIS_to_SWIR,OpenCV,MIND_SSD,Reprojection_Error,spearman,0.338100827539052,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,pearson,0.468979929205238,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,EDGA,spearman,0.499710464986504,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,pearson,0.0677492668103914,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,MIND_SSD,spearman,0.0583377355549939,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,pearson,-0.211642855361469,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,GOA,Reprojection_Error,spearman,-0.13455347366461,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,pearson,0.363933548739218,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,EDGA,MIND_SSD,spearman,0.300526660398471,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,pearson,-0.181551201762309,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,EDGA,Reprojection_Error,spearman,-0.14777766443509,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,pearson,0.435746941248227,100
+sunny,VIS_to_SWIR,Patch-MAGSAC++,MIND_SSD,Reprojection_Error,spearman,0.474287077438833,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,pearson,0.0753161654094277,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,EDGA,spearman,0.0627968448586331,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,pearson,-0.156387119943142,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,MIND_SSD,spearman,-0.185484259632084,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,pearson,-0.0875186624073845,100
+sunny,VIS_to_SWIR,RASMD Aligned,GOA,Reprojection_Error,spearman,-0.0516656315559323,100
+sunny,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,pearson,0.39616711736271,100
+sunny,VIS_to_SWIR,RASMD Aligned,EDGA,MIND_SSD,spearman,0.418850433669584,100
+sunny,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,pearson,0.13621892483656,100
+sunny,VIS_to_SWIR,RASMD Aligned,EDGA,Reprojection_Error,spearman,0.210681068106811,100
+sunny,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,pearson,0.730469747843861,100
+sunny,VIS_to_SWIR,RASMD Aligned,MIND_SSD,Reprojection_Error,spearman,0.745453188293788,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,EDGA,pearson,0.216028746966742,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,EDGA,spearman,0.247836783678368,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,pearson,0.308409834610366,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,MIND_SSD,spearman,0.238691869186919,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,pearson,-0.00585323934868182,100
+sunny,VIS_to_SWIR,ReDFeat,GOA,Reprojection_Error,spearman,0.0843324332433243,100
+sunny,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,pearson,0.523966848165024,100
+sunny,VIS_to_SWIR,ReDFeat,EDGA,MIND_SSD,spearman,0.557059705970597,100
+sunny,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,pearson,0.157409954855501,100
+sunny,VIS_to_SWIR,ReDFeat,EDGA,Reprojection_Error,spearman,0.210537053705371,100
+sunny,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,pearson,0.209083136390415,100
+sunny,VIS_to_SWIR,ReDFeat,MIND_SSD,Reprojection_Error,spearman,0.228934893489349,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,pearson,0.423833940689025,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,EDGA,spearman,0.443893042809228,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,pearson,0.200463529830562,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,MIND_SSD,spearman,0.151345107598667,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,pearson,0.0626017537655175,100
+sunny,VIS_to_SWIR,RoMa-MIND,GOA,Reprojection_Error,spearman,0.147659866876455,100
+sunny,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,pearson,0.407996502113763,100
+sunny,VIS_to_SWIR,RoMa-MIND,EDGA,MIND_SSD,spearman,0.384259916019936,100
+sunny,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,pearson,-0.0636201855442942,100
+sunny,VIS_to_SWIR,RoMa-MIND,EDGA,Reprojection_Error,spearman,0.00495651052060593,100
+sunny,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,pearson,0.520501808852439,100
+sunny,VIS_to_SWIR,RoMa-MIND,MIND_SSD,Reprojection_Error,spearman,0.53195780322067,100

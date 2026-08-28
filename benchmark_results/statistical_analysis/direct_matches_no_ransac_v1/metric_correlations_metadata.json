@@ -1,0 +1,24 @@
+{
+  "analysis": "Pearson and Spearman frame-level metric correlations",
+  "protocol": "direct_matches_no_ransac_v1",
+  "grouping": "weather x direction x method",
+  "frames_per_stratum": 100,
+  "n_strata": 36,
+  "metric_pairs_per_stratum": 6,
+  "correlation_types": [
+    "pearson",
+    "spearman"
+  ],
+  "total_correlations": 432,
+  "reprojection_values_replaced": 1200,
+  "changed_correlations": 72,
+  "unchanged_correlations": 360,
+  "change_scope": "only pairs involving Reprojection_Error in the 12 corrected ReDFeat/RoMa-MIND strata",
+  "generated_at_utc": "2026-08-28T14:26:03.229653+00:00",
+  "files": {
+    "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/metric_correlations.csv": "8fb9edb97863a9609e786f34efaee19eda2d85229c712ab5a61285721866ab19",
+    "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/metric_correlations_summary.csv": "a5e03c4abe6b16650be47635567afc38880b87b5b9ea449c0a6b94ae50ffe8fe",
+    "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/metric_correlations_changes_from_historical.csv": "9f1ad1bd2d22c3302aa3f65fb11a871a00d651bb817988046d3d44e2764d682b",
+    "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/combined_official_frame_metrics_corrected.csv": "7db2add40775be1a425027d5f1d04f844fbd9f3b995515d0d8b9bab03cf6c4cc"
+  }
+}

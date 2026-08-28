@@ -8,3 +8,4 @@ Geometric valid crop after homography: x=23:1866, y=159:1536, size=1843x1377
 The crop removes only invalid warp borders; it does not remove sky or vehicle content.
 "evaluation_protocol": "final_split_images"
 Reprojection Error: reprojection_aligned.py protocol (SuperPoint + LightGlue, device=cpu)
+Reprojection protocol version: direct_matches_no_ransac_v1 (use_ransac=False)

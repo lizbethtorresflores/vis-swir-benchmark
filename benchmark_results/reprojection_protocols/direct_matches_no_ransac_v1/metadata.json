@@ -1,0 +1,8 @@
+{
+  "protocol": "direct_matches_no_ransac_v1",
+  "use_ransac": false,
+  "ransac_threshold_px": null,
+  "num_cases": 12,
+  "summary_csv": "benchmark_results/reprojection_protocols/direct_matches_no_ransac_v1/summary.csv",
+  "summary_csv_sha256": "2ef25ae0066cb89f770b2053cc48d1dced6c711113b7ebca331f7b1ff90d3c92"
+}

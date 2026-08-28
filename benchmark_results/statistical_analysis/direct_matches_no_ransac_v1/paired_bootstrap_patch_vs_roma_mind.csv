@@ -1,0 +1,9 @@
+weather,direction,metric,protocol,patch_mean,roma_mind_mean,paired_mean_difference_patch_minus_roma,bootstrap_95_ci_lower,bootstrap_95_ci_upper,ci_contains_zero,conclusion,n_frames,n_bootstrap_resamples,random_seed
+sunny,VIS_to_SWIR,Reprojection_Error,direct_matches_no_ransac_v1,3.4447479391098024,3.685442419052124,-0.24069447994232177,-0.3191122487783432,-0.16610273325443276,False,Patch-MAGSAC++ lower,100,10000,42
+sunny,SWIR_to_VIS,Reprojection_Error,direct_matches_no_ransac_v1,4.95374751329422,3.4312221097946165,1.5225254034996032,1.4343791931271554,1.61052390396595,False,RoMa-MIND lower,100,10000,42
+cloudy,VIS_to_SWIR,Reprojection_Error,direct_matches_no_ransac_v1,4.483438017368317,5.237764811515808,-0.7543267941474915,-0.8994098876714707,-0.60711249178648,False,Patch-MAGSAC++ lower,100,10000,42
+cloudy,SWIR_to_VIS,Reprojection_Error,direct_matches_no_ransac_v1,6.622711205482483,4.940285279750824,1.682425925731659,1.4909828241467475,1.8730451036691667,False,RoMa-MIND lower,100,10000,42
+rainy,VIS_to_SWIR,Reprojection_Error,direct_matches_no_ransac_v1,3.6613687872886658,3.6929070115089417,-0.03153822422027588,-0.09889538753032684,0.036258039474487296,True,No significant difference at 95%,100,10000,42
+rainy,SWIR_to_VIS,Reprojection_Error,direct_matches_no_ransac_v1,5.6322243022918705,3.5504685735702513,2.081755728721619,1.925847638964653,2.2547524519562723,False,RoMa-MIND lower,100,10000,42
+snowy,VIS_to_SWIR,Reprojection_Error,direct_matches_no_ransac_v1,3.557944459915161,4.147934074401856,-0.5899896144866943,-0.6828621472716331,-0.5002412933111191,False,Patch-MAGSAC++ lower,100,10000,42
+snowy,SWIR_to_VIS,Reprojection_Error,direct_matches_no_ransac_v1,5.53243046760559,3.9041172814369203,1.6283131861686706,1.4778533741235733,1.7879189789891243,False,RoMa-MIND lower,100,10000,42

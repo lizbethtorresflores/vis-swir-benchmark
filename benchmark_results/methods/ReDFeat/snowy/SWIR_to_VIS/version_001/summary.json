@@ -137,11 +137,11 @@
     },
     "ReprojectionError": {
       "count": 100,
-      "mean": 4.566856305599213,
-      "median": 4.393675327301025,
-      "std": 1.188634789482106,
-      "min": 3.0123238563537598,
-      "max": 8.873746871948242
+      "mean": 11.211319637298583,
+      "median": 11.097635746002197,
+      "std": 1.6703320324785325,
+      "min": 7.895567893981934,
+      "max": 17.62464141845703
     }
   },
   "runtime": {
@@ -163,5 +163,10 @@
   },
   "warnings": [
     "RuntimeWarning in benchmark_eval.py while aggregating the diagnostic mind_map_mean image: Mean of empty slice. All 100 per-frame metric rows remained finite."
-  ]
+  ],
+  "reprojection_protocol": {
+    "reprojection_use_ransac": false,
+    "reprojection_ransac_threshold_px": null,
+    "reprojection_protocol_version": "direct_matches_no_ransac_v1"
+  }
 }

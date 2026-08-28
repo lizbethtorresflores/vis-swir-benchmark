@@ -1,0 +1,131 @@
+{
+  "analysis": "paired bootstrap Patch-MAGSAC++ vs RoMa-MIND",
+  "metric": "Reprojection_Error",
+  "protocol": "direct_matches_no_ransac_v1",
+  "difference_definition": "Patch-MAGSAC++ minus RoMa-MIND; positive favors RoMa-MIND because lower is better",
+  "confidence_interval": "percentile bootstrap [2.5, 97.5]",
+  "n_bootstrap_resamples": 10000,
+  "random_generator": "numpy.random.default_rng",
+  "random_seed": 42,
+  "paired_unit": "official benchmark frame ID",
+  "n_frames_per_task": 100,
+  "generated_at_utc": "2026-08-28T14:22:41.099701+00:00",
+  "summary_file": "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/paired_bootstrap_patch_vs_roma_mind.csv",
+  "summary_sha256": "64673ec6ae0043f143d02d434b5981b5b5dc2cd1d3477b38d206528fd005134e",
+  "paired_values_file": "benchmark_results/statistical_analysis/direct_matches_no_ransac_v1/paired_frame_values_patch_vs_roma_mind.csv",
+  "paired_values_sha256": "51a4afcd24bbd2ddb7486bd88b008ce64f2f340b97988070e3c63b5986a0fa93",
+  "sources": [
+    {
+      "weather": "sunny",
+      "direction": "VIS_to_SWIR",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/sunny_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "5faede4dab755e8a7b52ad695ca0ab5973b67e2038bf9eed080ca3fd045995ed"
+    },
+    {
+      "weather": "sunny",
+      "direction": "VIS_to_SWIR",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/sunny/VIS_to_SWIR/version_001/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "0709d9e933a8f31ba007c7e42b8f85841855533fdb9b30e9758bd51211ce4838"
+    },
+    {
+      "weather": "sunny",
+      "direction": "SWIR_to_VIS",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/sunny_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "26a0bec662ca2b65cb6009ce2ea45e7ddc3ace2603c7945a78783ebd21d2cd89"
+    },
+    {
+      "weather": "sunny",
+      "direction": "SWIR_to_VIS",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/sunny/SWIR_to_VIS/version_001/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "18b51fac017a49867eda4d92dbdb43d60e04eeeb6f6ea28094f70a4faa0fdcff"
+    },
+    {
+      "weather": "cloudy",
+      "direction": "VIS_to_SWIR",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/cloudy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "cbb48c6072aafa9da6b6f88d452c1a7c6c4a941dd612e10225c17497e94ed393"
+    },
+    {
+      "weather": "cloudy",
+      "direction": "VIS_to_SWIR",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/cloudy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "sha256": "e088e195302d253409233b5e67bbb923576c73ca1576abfcf25a60a7cf067ce8"
+    },
+    {
+      "weather": "cloudy",
+      "direction": "SWIR_to_VIS",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/cloudy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "0530289bf7d7c1ba76e6c26f99849826e662ec1f082257b90423379c3d756138"
+    },
+    {
+      "weather": "cloudy",
+      "direction": "SWIR_to_VIS",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/cloudy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "sha256": "3cd8631f8fece233d394b1e41e6b95f7bedf921a1941b3187962c56504a8860e"
+    },
+    {
+      "weather": "rainy",
+      "direction": "VIS_to_SWIR",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/rainy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "761e2c6eeb52037286952884395116232e4c0cbc9d8a1cd4e09a152090e45a93"
+    },
+    {
+      "weather": "rainy",
+      "direction": "VIS_to_SWIR",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/rainy/VIS_to_SWIR/version_001/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "7645da297f4a691105acd16f5cfefa3fcb2a18d35beefd4a72c95d6863ab9046"
+    },
+    {
+      "weather": "rainy",
+      "direction": "SWIR_to_VIS",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/rainy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "32a99c6022b9a281bbe248db6358d997162f2ab4b1834dc809503eb79c38f0f1"
+    },
+    {
+      "weather": "rainy",
+      "direction": "SWIR_to_VIS",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/rainy/SWIR_to_VIS/version_001/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "17b54698fbc2ced36aebd67bad2b17ea63efa3b3f55924ae994160dc22e2c49e"
+    },
+    {
+      "weather": "snowy",
+      "direction": "VIS_to_SWIR",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/snowy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_VIS_to_SWIR_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "0ba8026abe82cec5742f59a9285b7a86b58a01f9333b953a1950023060f3385b"
+    },
+    {
+      "weather": "snowy",
+      "direction": "VIS_to_SWIR",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/snowy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "sha256": "7c605ccbbad1e9d15bad14e4b199a631c45bd2e345f4348f26b91eb1480ea10f"
+    },
+    {
+      "weather": "snowy",
+      "direction": "SWIR_to_VIS",
+      "method": "Patch-MAGSAC++",
+      "path": "datas/snowy_test/Sortie_Extraite/paired_images/patch_RANSAC_HOMOGRAPHY_calibration_SWIR_to_VIS_H_from_objectif_12mm_4_boucle/results/reprojection_aligned/reprojection_aligned_framewise.csv",
+      "sha256": "288a81940ee610650e49f4773a9a6e8ee98d4fd377043d3b37913cf472d62979"
+    },
+    {
+      "weather": "snowy",
+      "direction": "SWIR_to_VIS",
+      "method": "RoMa-MIND",
+      "path": "benchmark_results/methods/RoMa-MIND/snowy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv",
+      "sha256": "d7b0ed8bed0d42aa8a567c38cfdb4e39824df04b7f399bb3664a0271bf1c0ce8"
+    }
+  ]
+}

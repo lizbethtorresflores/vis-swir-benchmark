@@ -137,11 +137,11 @@
     },
     "ReprojectionError": {
       "count": 100,
-      "mean": 8.391052026748657,
-      "median": 7.75793194770813,
-      "std": 2.947109140079058,
-      "min": 3.5276365280151367,
-      "max": 14.970222473144531
+      "mean": 19.09887288093567,
+      "median": 18.804903030395508,
+      "std": 3.702210553165179,
+      "min": 12.636184692382812,
+      "max": 29.92392349243164
     }
   },
   "runtime": {
@@ -161,5 +161,10 @@
     "per_frame_homography_used": false,
     "homography_reestimated": false
   },
-  "warnings": []
+  "warnings": [],
+  "reprojection_protocol": {
+    "reprojection_use_ransac": false,
+    "reprojection_ransac_threshold_px": null,
+    "reprojection_protocol_version": "direct_matches_no_ransac_v1"
+  }
 }

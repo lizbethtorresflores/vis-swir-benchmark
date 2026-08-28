@@ -111,5 +111,9 @@
   ],
   "num_official_frames": 100,
   "no_per_frame_homographies": true,
-  "no_homography_estimation_during_evaluation": true
+  "no_homography_estimation_during_evaluation": true,
+  "reprojection_use_ransac": false,
+  "reprojection_ransac_threshold_px": null,
+  "reprojection_protocol_version": "direct_matches_no_ransac_v1",
+  "reprojection_results_source": "benchmark_results/methods/ReDFeat/cloudy/SWIR_to_VIS/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv"
 }

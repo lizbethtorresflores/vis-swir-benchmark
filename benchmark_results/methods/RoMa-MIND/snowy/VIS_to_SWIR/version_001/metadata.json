@@ -16,5 +16,9 @@
   "estimation_data_description": "",
   "evaluation_protocol": "final_split_images",
   "submission_version": 1,
-  "num_evaluated_pairs": 100
+  "num_evaluated_pairs": 100,
+  "reprojection_use_ransac": false,
+  "reprojection_ransac_threshold_px": null,
+  "reprojection_protocol_version": "direct_matches_no_ransac_v1",
+  "reprojection_results_source": "benchmark_results/methods/RoMa-MIND/snowy/VIS_to_SWIR/version_001/results/reprojection_aligned/direct_matches_no_ransac_v1/reprojection_aligned_framewise.csv"
 }
