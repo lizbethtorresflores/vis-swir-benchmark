@@ -34,3 +34,6 @@ benchmark_results/prepared_zips/
 
 .streamlit/secrets.toml
 .cache/
+
+# Scripts et figures du papier conservés uniquement sur la machine locale.
+paper_figures/
