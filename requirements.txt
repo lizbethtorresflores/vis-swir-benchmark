@@ -1,5 +1,6 @@
 # Dependencies required to render the official benchmark in Streamlit Community Cloud.
 streamlit==1.57.0
+starlette==1.7.0
 numpy==2.2.6
 pandas==3.0.1
 scipy==1.17.1
